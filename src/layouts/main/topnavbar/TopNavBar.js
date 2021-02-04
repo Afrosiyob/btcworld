@@ -12,6 +12,7 @@ import {
   Container,
 } from "reactstrap";
 import CustomModal from "../../../components/customModal/CustomModal";
+import SignIn from "../signin/SignIn";
 
 function TopNavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,8 @@ function TopNavBar() {
               <CustomModal
                 className="header-btn  px-3 py-1 rounded-pill"
                 buttonLabel="Sign In"
-                modalContent={<h1>this is sign in</h1>}
+                title="sign in"
+                modalContent={<SignIn />}
               />
             </NavbarText>
             <NavbarText className="ml-2 d-flex justify-content-center align-items-center">

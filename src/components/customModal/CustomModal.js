@@ -3,7 +3,7 @@ import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import Ripples from "react-ripples";
 import "./CustomModal.scss";
 const CustomModal = (props) => {
-  const { buttonLabel, className, modalContent } = props;
+  const { buttonLabel, title, className, modalContent } = props;
 
   const [modal, setModal] = useState(false);
 
@@ -23,7 +23,7 @@ const CustomModal = (props) => {
         toggle={toggle}
         className={className}
       >
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+        <ModalHeader toggle={toggle}>{title}</ModalHeader>
         <ModalBody>{modalContent}</ModalBody>
         {/* <ModalFooter>
           <Button color="primary" onClick={toggle}>

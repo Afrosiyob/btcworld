@@ -3,6 +3,9 @@ import "./Footer.scss";
 import Ripples from "react-ripples";
 
 import { Container, Row, Col } from "reactstrap";
+import ImgOne from "../../../assets/images/click.png";
+import ImgTwo from "../../../assets/images/payme-logo.png";
+import ImgThree from "../../../assets/images/visa.png";
 
 function Footer() {
   return (
@@ -58,11 +61,11 @@ function Footer() {
           </div>
 
           <div className="left-header">
-            <h1 className="text-uppercase">GMMG</h1>
-            <h4 className="text-uppercase">fwewef</h4>
+            <h1 className="text-uppercase">BTC</h1>
+            <h4 className="text-uppercase">WE HELP THE PEOPLE</h4>
           </div>
           <div className="right-header d-flex align-items-center align-content-center">
-            <h4>wfgwef </h4>
+            <h4>Write on: </h4>
 
             <Ripples color="rgba(255,255,255,0.5)" className="rounded-pill">
               <a href="#!">
@@ -73,7 +76,14 @@ function Footer() {
             <Ripples color="rgba(255,255,255,0.5)" className="rounded-pill">
               <a href="#!">
                 {" "}
-                <i className="fab fa-skype"></i>{" "}
+                <i className="fab fa-facebook"></i>{" "}
+              </a>
+            </Ripples>
+
+            <Ripples color="rgba(255,255,255,0.5)" className="rounded-pill">
+              <a href="#!">
+                {" "}
+                <i className="fab fa-instagram"></i>{" "}
               </a>
             </Ripples>
           </div>
@@ -89,43 +99,43 @@ function Footer() {
                     className="fas fa-map-marker-alt mr-2"
                     aria-hidden="true"
                   ></i>{" "}
-                  fwefew
+                  Amir Temur street, Tashkent city
                 </li>
                 <li>
                   <i className="fas fa-phone-alt mr-2" aria-hidden="true"></i>
-                  +998 99 999 00 00
+                  +998 33 860 36 99
                 </li>
                 <li>
                   <i className="fas fa-mobile-alt mr-2" aria-hidden="true"></i>
-                  +998 99 999 00 00
+                  @business_trend_uz
                 </li>
                 <li>
                   <i className="fas fa-envelope mr-2" aria-hidden="true"></i>
-                  info@gmmg.world
+                  btc.uz@yandex.com
                 </li>
               </ul>
             </div>
           </Col>
           <Col sm="12" md="4">
             <div className="mid-box">
-              <h4 className="text-uppercase">fwefew</h4>
+              <h4 className="text-uppercase">Home</h4>
               <ul className="list-unstyled">
-                <li>fwefew</li>
-                <li>fwefew</li>
-                <li>fewwefew</li>
-                <li>fwefew</li>
-                <li>fwefwef</li>
+                <li>About</li>
+                <li>Holding Structure</li>
+                <li>News</li>
+                <li>Legality</li>
+                <li>Contacts</li>
               </ul>
             </div>
           </Col>
           <Col sm="12" md="4">
             <div className="right-box">
-              <h4 className="text-uppercase">fwefwe</h4>
-              <ul className="list-unstyled">
-                <li>wefewfw</li>
-                <li>ewfwef</li>
-                <li>efwefwe</li>
-              </ul>
+              <h4 className="text-uppercase">Payment System</h4>
+                  <img src={ImgOne} className="m-2" width={100} alt="item" />
+                
+                  <img src={ImgThree} className="m-2" width={100} alt="item" />
+               
+                  <img src={ImgTwo} className="m-2" width={100} alt="item" />
             </div>
           </Col>
         </Row>

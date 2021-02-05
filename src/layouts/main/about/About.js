@@ -1,6 +1,10 @@
 import React from "react";
 
 import "./About.scss";
+import ImgOne from "../../../assets/images/photo_2021-01-13_12-14-03.jpg";
+import ImgTwo from "../../../assets/images/photo_2021-01-13_12-14-17.jpg";
+import ImgThree from "../../../assets/images/photo_2021-01-13_12-14-56.jpg";
+import ImgFour from "../../../assets/images/photo_2021-01-13_12-15-10.jpg";
 
 import { Col, Container, Row } from "reactstrap";
 
@@ -17,22 +21,22 @@ function About() {
               <div className="left-item-box">
                 {" "}
                 <img
-                  src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
+                  src={ImgOne}
                   alt="some data"
                 />{" "}
                 <img
-                  src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
+                  src={ImgTwo}
                   alt="some data"
                 />{" "}
               </div>
               <div className="right-item-box">
                 {" "}
                 <img
-                  src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
+                  src={ImgThree}
                   alt="some data"
                 />{" "}
                 <img
-                  src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
+                  src={ImgFour}
                   alt="some data"
                 />{" "}
               </div>

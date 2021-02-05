@@ -17,7 +17,7 @@ function Header() {
               className="mr-3 mb-3 rounded-pill"
             >
               <button className="header-btn  px-5 py-2 rounded-pill">
-                text
+                Bacame partner
               </button>
             </Ripples>
             <Ripples
@@ -25,7 +25,7 @@ function Header() {
               className="mr-3 mb-3 rounded-pill"
             >
               <button className="header-btn rounded-pill px-5 py-2">
-                text
+                Watch intro
               </button>
             </Ripples>
           </div>

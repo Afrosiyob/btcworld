@@ -1,12 +1,19 @@
 import { message } from "antd";
 import axios from "axios";
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
-import { USER_AUTO_LOGIN, USER_LOGIN } from "../actions";
+import {
+  REG_USER,
+  USER_AUTO_LOGIN,
+  USER_LOGIN,
+  USER_LOG_OUT,
+} from "../actions";
 import {
   userAutoLoginError,
   userAutoLoginSuccess,
   userLoginError,
   userLoginSuccess,
+  userLogOutError,
+  userLogOutSuccess,
 } from "./action";
 
 function* watchUserLogin() {
@@ -39,10 +46,46 @@ function* workUserLogin({ payload }) {
   }
 }
 
+function* watchUserLogOutUser() {
+  yield takeEvery(USER_LOG_OUT, workUserLogOut);
+}
+
+function fetchUserLogOut() {
+  return axios
+    .post(`${process.env.REACT_APP_SERVER_URL}/logout/`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${localStorage.getItem("token")}`,
+      },
+    })
+    .then((response) => {
+      return { response };
+    })
+    .catch((error) => {
+      return { error };
+    });
+}
+
+function* workUserLogOut({ payload }) {
+  const history = payload;
+  const { response, error } = yield call(fetchUserLogOut);
+
+  if (response) {
+    yield put(userLogOutSuccess());
+    history.push("/");
+    window.location.reload();
+    localStorage.removeItem("token");
+    message.loading("kuting").then(() => message.success("success"));
+  } else {
+    yield put(userLogOutError(error));
+    message.loading("kuting").then(() => message.error(error));
+  }
+}
+
 function* watchUserAutoLogin() {
   yield takeEvery(USER_AUTO_LOGIN, workUserAutoLogin);
 }
-
 function fetchUserAutoLogin() {
   return axios
     .get(`${process.env.REACT_APP_SERVER_URL}login/`, {
@@ -74,6 +117,41 @@ function* workUserAutoLogin() {
   }
 }
 
+function* watchRegUser() {
+  yield takeEvery(REG_USER, workRegUser);
+}
+
+function fetchRegUser(userData) {
+  return axios
+    .post(`${process.env.REACT_APP_SERVER_URL}register/`, userData)
+    .then((response) => {
+      return { response };
+    })
+    .catch((error) => {
+      return { error };
+    });
+}
+
+function* workRegUser({ payload }) {
+  const userData = payload;
+  const { response, error } = yield call(fetchRegUser, userData);
+
+  if (response) {
+    console.log(" reg res ====================================");
+    console.log(response);
+    console.log("====================================");
+  } else {
+    console.log(" reg error ====================================");
+    console.log(error);
+    console.log("====================================");
+  }
+}
+
 export default function* rootSaga() {
-  yield all([fork(watchUserLogin), fork(watchUserAutoLogin)]);
+  yield all([
+    fork(watchUserLogin),
+    fork(watchUserAutoLogin),
+    fork(watchUserLogOutUser),
+    fork(watchRegUser),
+  ]);
 }

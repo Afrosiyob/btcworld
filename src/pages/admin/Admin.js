@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import {
-  Layout,
-  Menu,
-  Breadcrumb,
-  Affix,
-  Avatar,
-  Image,
-  Row,
-  Col,
-  Tooltip,
-} from "antd";
+import { Link, Redirect, Route, Switch } from "react-router-dom";
+import { Layout, Menu, Affix, Avatar, Image, Row, Col, Tooltip } from "antd";
 import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
 
 import "./Admin.scss";
+import Statistics from "./statistics/Statistics";
+import Plans from "./plans/Plans";
+import Setting from "./setting/Setting";
+import Team from "./team/Team";
+import Products from "./products/Products";
 
 function Admin() {
   const { Header, Content, Footer, Sider } = Layout;
@@ -60,25 +55,25 @@ function Admin() {
               </svg>
             </div>
 
-            <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+            <Menu theme="dark" defaultSelectedKeys={["2"]} mode="inline">
               <Menu.Item key="1" icon={<PieChartOutlined />}>
                 <Link to="/"> home </Link>
               </Menu.Item>
               <Menu.Item key="2" icon={<DesktopOutlined />}>
-                Statistics
+                <Link to="/admin/statistics">Statistics</Link>
               </Menu.Item>
 
               <Menu.Item key="3" icon={<DesktopOutlined />}>
-                Team
+                <Link to="/admin/team">team</Link>
               </Menu.Item>
               <Menu.Item key="4" icon={<DesktopOutlined />}>
-                producs
+                <Link to="/admin/products">products</Link>
               </Menu.Item>
               <Menu.Item key="5" icon={<DesktopOutlined />}>
-                Tariflar
+                <Link to="/admin/plans">plans</Link>
               </Menu.Item>
               <Menu.Item key="6" icon={<DesktopOutlined />}>
-                Settings
+                <Link to="/admin/setting">setting</Link>
               </Menu.Item>
             </Menu>
           </Sider>
@@ -109,45 +104,16 @@ function Admin() {
             </Header>
           </Affix>
 
-          <Content style={{ margin: "0 16px" }}>
-            <Breadcrumb style={{ margin: "16px 0" }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div
-              className="site-layout-background"
-              style={{ padding: 24, minHeight: 360 }}
-            >
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
-              <h1>wfeww</h1>
+          <Content style={{ margin: "16px" }}>
+            <div style={{ padding: 24 }}>
+              <Switch>
+                <Redirect exact from="/admin" to="/admin/statistics" />
+                <Route path="/admin/statistics" component={Statistics} />
+                <Route path="/admin/plans" component={Plans} />
+                <Route path="/admin/setting" component={Setting} />
+                <Route path="/admin/team" component={Team} />
+                <Route path="/admin/products" component={Products} />
+              </Switch>
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>

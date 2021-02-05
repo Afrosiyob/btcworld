@@ -1,0 +1,54 @@
+{
+  "msg": "salom",
+  "homeNavbar": {
+    "home": "Bosh sahifa",
+    "aboute": "Biz haqimizda",
+    "pdfInfo": "Yangiliklar",
+    "contacts": "Aloqa",
+    "signIn": "Kirish",
+    "signUp": "Ro'yxatdan o'tish",
+    "lang": "Til"
+  },
+  "homeAbout":{
+    "Title":"BUSINESS TREND COMPANY. Biz kimmiz? Biz, bir nechta sohalarni o’zida jamlagan jamiyatmiz.Turli yo’nalishdagi bilimlar, biznes treninglar, sayohatlar va biznes sohasida yuqori sifatli amaliyotlar, yuqori rentabillikdagi matritsali modellar, ijtimoiy tarmoqlardagi eng sifatli internet xizmatlari, sifatli va ishonchli haridlar biz bilan.Hayriya tadbirlari  “ BUSINESS TREND COMPANY ” hisobidandir.",
+    "Title2":"Asosiy tamoyili - Hamkorlarimiz bilan halollik, oshkoralikda ishlash, va albatta yuqori daromat hisoblanadi.Biz bilan rivojlanishga qaror qilgan minglab odamlar allaqachon buni sinab ko’rishdi va yuqori natijalarga erishishdi.",
+    "Title3":"Kompaniyaning asosiy g’oyasi:Imkon qadar odamlarga ko’proq yordam berish; Ba’zilar uchun bu, doimiy ishdan halos bo’lish, ya’ni kapitalni ko’paytirish yoki munosib kompaniyada uzoq muddatli va samarali ish olib borish; Ba’zilar uchun esa, o’z orzular ro’yobi. Ya’ni sayohatlar katta daromad, avtomobillar, uylar, ko’plab do’stlar, o’zgacha hayot va hayrli ishlarni amalga oshirish; Orzu-maqsadlaringizning maksimal poydevori vazifasini bajaruvchi jamiyat."
+  },
+  "homeFooter":{
+      "Titul":"Toshkent shahri, Amir Temur ko'chasi",
+      "Titul2":"Bosh menu",
+      "Titul3":"Haqida",
+      "Titul4":"Xolding tarkibi",
+      "Titul5":"Yangiliklar",
+      "Titul6":"Qonuniylik",
+      "Titul7":"Kontaktlar",
+      "Titul8":"To'lov tizimi",
+      "Titul9":"Yozing:",
+      "Titul10":"biz odamlarga yordam beramiz"
+  },
+  "homeHeader":{
+      "Titul":"Business Trend Company",
+      "Titul2":"Orzular biz bilan ro'yobga chiqadi",
+      "Titul3":"Sherik bo'lish",
+      "Titul4":"Intro-ni tomosha qiling",
+      "Titul5":"Yangiliklar"
+  },
+  "homeReg":{
+      "Titul":"Business Trend Company",
+      "Titul2":"Biz odamlarga yordam beramiz",
+      "Titul3":"Sherik bo'lish",
+      "Titul4":"Ro'yxatdan o'tish"
+  },
+  "homeLogin":{
+    "Titul":"Kirish",
+    "Titul2":"Ro'yxatdan o'tish",
+    "Titul3":"Ismingizni kiriting...",
+    "Titul4":"Parolingizni kiriting...",
+    "Titul5":"Elektron pochtangizni kiriting...",
+    "Titul6":"Parolingizni qaytadan kiriting...",
+    "Titul7":"Telefon raqamingizni kiriting...",
+    "Titul8":"Partner",
+    "Titul9":"Men robot emasman.",
+    "Titul10":"Parolingizni unutdingizmi?"
+  }
+}

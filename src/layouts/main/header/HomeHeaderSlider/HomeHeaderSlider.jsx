@@ -1,6 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
 import "./HomeHeaderSlider.scss";
+import ImgOne from "../../../../assets/images/photo_2021-01-13_12-14-51.jpg";
+import ImgTwo from "../../../../assets/images/photo_2021-01-13_12-15-04.jpg";
+import ImgThree from "../../../../assets/images/photo_2021-01-13_12-14-45.jpg";
+import ImgFour from "../../../../assets/images/photo_2021-01-13_12-14-39.jpg";
 
 function HomeHeaderSlider() {
   const settings = {
@@ -16,33 +20,25 @@ function HomeHeaderSlider() {
       <Slider {...settings}>
         <div className="slider-item">
           <img
-            src={
-              "https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract01.jpg"
-            }
+            src={ImgOne}
             alt="headerSrc"
           />
         </div>
         <div className="slider-item">
           <img
-            src={
-              "https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract02.jpg"
-            }
+            src={ImgTwo}
             alt="headerSrc"
           />
         </div>
         <div className="slider-item">
           <img
-            src={
-              "https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract03.jpg"
-            }
+            src={ImgThree}
             alt="headerSrc"
           />
         </div>
         <div className="slider-item">
           <img
-            src={
-              "https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
-            }
+            src={ImgFour}
             alt="headerSrc"
           />
         </div>

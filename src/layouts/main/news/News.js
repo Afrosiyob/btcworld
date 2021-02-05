@@ -6,6 +6,9 @@ import { Container } from "reactstrap";
 import ShapeDots from "./ShapeDots/ShapeDots";
 import LeftShape from "./LeftShape/LeftShape";
 import RightShape from "./RightShape/RightShape";
+import ImgOne from "../../../assets/images/new1.jpg";
+import ImgTwo from "../../../assets/images/new2.jpg";
+import ImgThree from "../../../assets/images/new3.jpg";
 
 function News() {
   return (
@@ -23,7 +26,7 @@ function News() {
             <ShapeDots />
             <div className="position-relative">
               <img
-                src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
+                src={ImgOne}
                 alt="item"
               />
             </div>
@@ -32,7 +35,7 @@ function News() {
             <ShapeDots />
             <div className="position-relative">
               <img
-                src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
+                src={ImgTwo}
                 alt="item"
               />
             </div>
@@ -41,7 +44,7 @@ function News() {
             <ShapeDots />
             <div className="position-relative">
               <img
-                src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
+                src={ImgThree}
                 alt="item"
               />
             </div>

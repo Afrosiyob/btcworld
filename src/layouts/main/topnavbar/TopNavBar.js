@@ -1,3 +1,4 @@
+import { Affix } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
@@ -36,13 +37,12 @@ function TopNavBar() {
 
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <div>
+    <Affix offsetTop={0}>
       <Navbar
-        className="shadow-lg"
+        // className="shadow-lg"
         style={{ backgroundColor: "rgb(232, 241, 255)" }}
         light
         expand="md"
-        fixed="top"
       >
         <Container>
           <NavbarBrand href="/">
@@ -169,7 +169,7 @@ function TopNavBar() {
           </Collapse>
         </Container>
       </Navbar>
-    </div>
+    </Affix>
   );
 }
 

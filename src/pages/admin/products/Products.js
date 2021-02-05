@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Col, Row, Table } from "antd";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../../store/products/action";
 
 function Products() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   const columns = [
     {
       title: "Product",

@@ -6,7 +6,7 @@ import "./Header.scss";
 
 function Header() {
   return (
-    <div className="home-header shadow-lg" id="section1">
+    <div className="home-header" id="section1">
       <div className="home-header-main-info">
         <Container>
           <h1 className="mb-3">Business Trend Company</h1>

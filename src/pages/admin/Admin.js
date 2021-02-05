@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { Link, Redirect, Route, Switch } from "react-router-dom";
-import { Layout, Menu, Affix, Avatar, Image, Row, Col, Tooltip } from "antd";
+import {
+  Layout,
+  Menu,
+  Affix,
+  Avatar,
+  Image,
+  Row,
+  Col,
+  Tooltip,
+  Select,
+} from "antd";
 import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
 
 import "./Admin.scss";
@@ -22,7 +32,12 @@ function Admin() {
     setState({ ...state, collapsed });
   };
 
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
+
   const { collapsed } = state;
+  const { Option } = Select;
 
   return (
     <div>
@@ -90,6 +105,17 @@ function Admin() {
                 align="middle"
                 style={{ paddingRight: "16px" }}
               >
+                <Col>
+                  <Select
+                    className="mr-3"
+                    defaultValue="uz"
+                    style={{ width: 80 }}
+                    onChange={handleChange}
+                  >
+                    <Option value="uz">uz</Option>
+                    <Option value="ru">ru</Option>
+                  </Select>
+                </Col>
                 <Col>
                   <Tooltip placement="topLeft" title={"admin"}>
                     <Avatar

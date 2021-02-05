@@ -14,6 +14,8 @@ import {
 import CustomModal from "../../../components/customModal/CustomModal";
 import SignIn from "../signin/SignIn";
 
+import "./TopNavBar.scss";
+
 function TopNavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -46,21 +48,38 @@ function TopNavBar() {
               </NavItem>
             </Nav>
 
-            <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
-              <CustomModal
-                className="header-btn  px-3 py-1 rounded-pill"
-                buttonLabel="Sign In"
-                title="sign in"
-                modalContent={<SignIn />}
-              />
-            </NavbarText>
-            <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
-              <CustomModal
-                className="header-btn  px-3 py-1 rounded-pill"
-                buttonLabel="Sign up"
-                modalContent={<h1>this is sign up</h1>}
-              />
-            </NavbarText>
+            {!localStorage.getItem("token") ? (
+              <div className="d-flex">
+                <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
+                  <CustomModal
+                    className="header-btn  px-3 py-1 rounded-pill"
+                    buttonLabel="Sign In"
+                    title="sign in"
+                    modalContent={<SignIn />}
+                  />
+                </NavbarText>
+                <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
+                  <CustomModal
+                    className="header-btn  px-3 py-1 rounded-pill"
+                    buttonLabel="Sign up"
+                    modalContent={<h1>this is sign up</h1>}
+                  />
+                </NavbarText>
+              </div>
+            ) : (
+              <div className="d-flex">
+                <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
+                  <button className="nav-admin-btn px-3 py-1 rounded-pill">
+                    admin
+                  </button>
+                </NavbarText>
+                <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
+                  <button className="nav-admin-btn px-3 py-1 rounded-pill">
+                    log out
+                  </button>
+                </NavbarText>
+              </div>
+            )}
           </Collapse>
         </Container>
       </Navbar>

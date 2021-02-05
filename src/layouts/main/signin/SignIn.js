@@ -2,10 +2,24 @@ import React from "react";
 import { Form, Input } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./SignIn.scss";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../../store/auth/action";
+import { useHistory } from "react-router-dom";
 
 function SignIn() {
+  const dispatch = useDispatch();
+
+  let history = useHistory();
+
   const onFinish = (values) => {
     console.log("Success:", values);
+
+    const formData = new FormData();
+
+    formData.append("username", values.username);
+    formData.append("password", values.password);
+
+    dispatch(userLogin(formData, history));
   };
 
   const onFinishFailed = (errorInfo) => {

@@ -2,14 +2,13 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 export const ProtectedRouteAdmin = ({ component: Component, ...rest }) => {
-  //   const token = localStorage.getItem("token");
-  //   const role = localStorage.getItem("role");
-  const fakeAuth = true;
+  const token = localStorage.getItem("token");
+
   return (
     <Route
       {...rest}
       render={(props) =>
-        fakeAuth ? (
+        token ? (
           <Component {...props} />
         ) : (
           <Redirect

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { EyeOutlined } from "@ant-design/icons";
+
 import { Modal, Button } from "antd";
 
 function AntModal({ userEmail, userLink, userName, userTelegram, userImage }) {

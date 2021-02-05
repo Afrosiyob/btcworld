@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Col, Row, Table } from "antd";
-import { DownloadOutlined } from "@ant-design/icons";
 
 function Products() {
   const columns = [

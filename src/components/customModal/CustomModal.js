@@ -3,11 +3,23 @@ import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import Ripples from "react-ripples";
 import "./CustomModal.scss";
 const CustomModal = (props) => {
-  const { buttonLabel, size, title, className, modalContent } = props;
+  const {
+    buttonLabel,
+    sendLoading,
+    regLoading,
+    size,
+    title,
+    className,
+    modalContent,
+  } = props;
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+
+  // if (sendLoading === false || regLoading === false) {
+  //   toggle();
+  // }
 
   return (
     <div>

@@ -28,7 +28,8 @@ function TopNavBar() {
 
   let history = useHistory();
 
-  const { sendLoading } = useSelector((state) => state.userReducer);
+  const { sendLoading, regLoading } = useSelector((state) => state.userReducer);
+
   const dispatch = useDispatch();
 
   const logoutAction = () => {
@@ -154,6 +155,7 @@ function TopNavBar() {
                     buttonLabel="Sign In"
                     title="sign in"
                     modalContent={<SignIn sendLoading={sendLoading} />}
+                    sendLoading={sendLoading}
                   />
                 </NavbarText>
                 <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
@@ -161,6 +163,7 @@ function TopNavBar() {
                     className="header-btn  px-3 py-1 rounded-pill"
                     buttonLabel="Sign up"
                     modalContent={<SignUp />}
+                    regLoading={regLoading}
                     size="lg"
                   />
                 </NavbarText>

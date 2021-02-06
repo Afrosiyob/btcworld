@@ -30,9 +30,6 @@ function* workGetTree({ payload }) {
   const { response, error } = yield call(fetchGetTree, user_id);
 
   if (response) {
-    console.log(" tree data ====================================");
-    console.log(response);
-    console.log("====================================");
     yield put(getTreeSuccess(response.data));
     message.loading("waiting").then(() => message.success("success"));
   } else {

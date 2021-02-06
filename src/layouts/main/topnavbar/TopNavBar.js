@@ -12,15 +12,23 @@ import {
   NavLink,
   NavbarText,
   Container,
+  Button,
 } from "reactstrap";
 import CustomModal from "../../../components/customModal/CustomModal";
 import { userLogOut } from "../../../store/auth/action";
 import SignIn from "../signin/SignIn";
 import SignUp from "../signup/SignUp";
+import Uz from "../../../assets/images/uz.png";
+import Ru from "../../../assets/images/ru.png";
+import { useTranslation } from "react-i18next";
 
 import "./TopNavBar.scss";
 
 function TopNavBar() {
+  const [ t, i18n] = useTranslation();
+  const changeLang = (lang) => {
+    i18n.changeLanguage(lang);
+  };
   // const { Link  } = Anchor;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +52,7 @@ function TopNavBar() {
         expand="md"
         fixed="top"
       >
-        <Container>
+        <Container fluid>
           <NavbarBrand href="/">
             <svg
               class="brand-img"
@@ -108,22 +116,44 @@ function TopNavBar() {
             <Nav className="m-auto" navbar>
               <NavItem className="d-flex justify-content-center ml-4 align-items-center">
                 <NavLink className="nav-style" href="#">
-                  Home
+                  {/* Home */}{t(`homeNavbar.home`)}
                 </NavLink>
               </NavItem>
               <NavItem className="d-flex justify-content-center ml-4 align-items-center">
                 <NavLink className="nav-style" href="#!">
-                  About
+                  {/* About */} {t(`homeNavbar.aboute`)}
                 </NavLink>
               </NavItem>
               <NavItem className="d-flex justify-content-center ml-4 align-items-center">
                 <NavLink className="nav-style" href="#!">
-                  News
+                  {/* News */} {t(`homeNavbar.pdfInfo`)}
                 </NavLink>
               </NavItem>
               <NavItem className="d-flex justify-content-center ml-4 align-items-center">
                 <NavLink className="nav-style" href="#!">
-                  Contact
+                  {/* Contact */} {t(`homeNavbar.contacts`)}
+                </NavLink>
+              </NavItem>
+              <NavItem className="d-flex justify-content-center ml-4 align-items-center">
+                <NavLink className="nav-style" href="#!">
+                  <Button
+                    value="uz"
+                    onClick={(e) => {
+                      changeLang("uz");
+                    }}
+                    className="m-2 border-0 text-primary bg-light"
+                  >
+                    <img src={Uz} width={20} alt="uz" /> Uz
+                  </Button>
+                  <Button
+                    value="ru"
+                    onClick={(e) => {
+                      changeLang("ru");
+                    }}
+                    className="m-2 border-0 text-primary bg-light"
+                  >
+                    <img src={Ru} width={25} alt="uz" /> Ru
+                  </Button>
                 </NavLink>
               </NavItem>
             </Nav>

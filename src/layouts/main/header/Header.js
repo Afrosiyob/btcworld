@@ -11,7 +11,7 @@ function Header() {
         <Container>
           <h1 className="mb-3">Business Trend Company</h1>
           <h4 className="mb-3">Dreams come true with us</h4>
-          <div className="wrap-btns">
+          <div className="wrap-btns mb-5">
             <Ripples
               color="rgba(255,255,255,0.5)"
               className="mr-3 mb-3 rounded-pill"

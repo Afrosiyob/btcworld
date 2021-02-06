@@ -11,7 +11,6 @@ import {
   Tooltip,
   Select,
 } from "antd";
-import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
 
 import "./Admin.scss";
 import Statistics from "./statistics/Statistics";
@@ -19,8 +18,10 @@ import Plans from "./plans/Plans";
 import Setting from "./setting/Setting";
 import Team from "./team/Team";
 import Products from "./products/Products";
+import { useTranslation } from "react-i18next";
 
 function Admin() {
+  const { i18n, t } =useTranslation();
   const { Header, Content, Footer, Sider } = Layout;
 
   const [state, setState] = useState({
@@ -32,8 +33,8 @@ function Admin() {
     setState({ ...state, collapsed });
   };
 
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
+  const handleChange = (lang) => {
+    i18n.changeLanguage(lang);
   };
 
   const { collapsed } = state;
@@ -71,24 +72,24 @@ function Admin() {
             </div>
 
             <Menu theme="dark" defaultSelectedKeys={["2"]} mode="inline">
-              <Menu.Item key="1" icon={<PieChartOutlined />}>
-                <Link to="/"> home </Link>
+              <Menu.Item key="1">
+                <Link to="/">🏠 {t(`Admin.Titul`)} </Link>
               </Menu.Item>
-              <Menu.Item key="2" icon={<DesktopOutlined />}>
-                <Link to="/admin/statistics">Statistics</Link>
+              <Menu.Item key="2">
+                <Link to="/admin/statistics">📈 {t(`Admin.Titul2`)}</Link>
               </Menu.Item>
 
-              <Menu.Item key="3" icon={<DesktopOutlined />}>
-                <Link to="/admin/team">team</Link>
+              <Menu.Item key="3">
+                <Link to="/admin/team">👩‍👩‍👧‍👧 {t(`Admin.Titul3`)}</Link>
               </Menu.Item>
-              <Menu.Item key="4" icon={<DesktopOutlined />}>
-                <Link to="/admin/products">products</Link>
+              <Menu.Item key="4">
+                <Link to="/admin/products">🛍 {t(`Admin.Titul4`)}</Link>
               </Menu.Item>
-              <Menu.Item key="5" icon={<DesktopOutlined />}>
-                <Link to="/admin/plans">plans</Link>
+              <Menu.Item key="5">
+                <Link to="/admin/plans">🗒 {t(`Admin.Titul5`)}</Link>
               </Menu.Item>
-              <Menu.Item key="6" icon={<DesktopOutlined />}>
-                <Link to="/admin/setting">setting</Link>
+              <Menu.Item key="6">
+                <Link to="/admin/setting">⚙️ {t(`Admin.Titul6`)}</Link>
               </Menu.Item>
             </Menu>
           </Sider>

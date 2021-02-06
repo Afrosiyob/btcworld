@@ -7,9 +7,8 @@ import { userLogin } from "../../../store/auth/action";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-
-function SignIn() {
-  const [ t ] = useTranslation();
+function SignIn({ sendLoading }) {
+  const [t] = useTranslation();
 
   const dispatch = useDispatch();
 

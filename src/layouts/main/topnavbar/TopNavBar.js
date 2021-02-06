@@ -1,7 +1,7 @@
 import { Affix } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link as RouterLink, useHistory } from "react-router-dom";
 
 import {
   Collapse,
@@ -22,15 +22,14 @@ import SignUp from "../signup/SignUp";
 import Uz from "../../../assets/images/uz.png";
 import Ru from "../../../assets/images/ru.png";
 import { useTranslation } from "react-i18next";
-
+import { Link } from "react-scroll";
 import "./TopNavBar.scss";
 
 function TopNavBar() {
-  const [ t, i18n] = useTranslation();
+  const [t, i18n] = useTranslation();
   const changeLang = (lang) => {
     i18n.changeLanguage(lang);
   };
-  // const { Link  } = Anchor;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -43,6 +42,11 @@ function TopNavBar() {
   const logoutAction = () => {
     dispatch(userLogOut(history));
   };
+
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
+  const [modalone, setModalone] = useState(false);
+  const toggleModalone = () => setModalone(!modalone);
 
   const toggle = () => setIsOpen(!isOpen);
   return (
@@ -116,24 +120,60 @@ function TopNavBar() {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="m-auto" navbar>
               <NavItem className="d-flex justify-content-center ml-4 align-items-center">
-                <NavLink className="nav-style" href="#">
-                  {/* Home */}{t(`homeNavbar.home`)}
-                </NavLink>
+                <Link
+                  className="nav-style"
+                  activeClass="active"
+                  to="section1"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  {" "}
+                  {t(`homeNavbar.home`)}{" "}
+                </Link>
               </NavItem>
               <NavItem className="d-flex justify-content-center ml-4 align-items-center">
-                <NavLink className="nav-style" href="#!">
-                  {/* About */} {t(`homeNavbar.aboute`)}
-                </NavLink>
+                <Link
+                  className="nav-style"
+                  activeClass="active"
+                  to="section2"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  {" "}
+                  {t(`homeNavbar.aboute`)}
+                </Link>
               </NavItem>
               <NavItem className="d-flex justify-content-center ml-4 align-items-center">
-                <NavLink className="nav-style" href="#!">
-                  {/* News */} {t(`homeNavbar.pdfInfo`)}
-                </NavLink>
+                <Link
+                  className="nav-style"
+                  activeClass="active"
+                  to="section3"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  {" "}
+                  {t(`homeNavbar.pdfInfo`)}
+                </Link>
               </NavItem>
               <NavItem className="d-flex justify-content-center ml-4 align-items-center">
-                <NavLink className="nav-style" href="#!">
-                  {/* Contact */} {t(`homeNavbar.contacts`)}
-                </NavLink>
+                <Link
+                  className="nav-style"
+                  activeClass="active"
+                  to="section4"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  {" "}
+                  {t(`homeNavbar.contacts`)}
+                </Link>
               </NavItem>
               <NavItem className="d-flex justify-content-center ml-4 align-items-center">
                 <NavLink className="nav-style" href="#!">
@@ -162,11 +202,11 @@ function TopNavBar() {
             {localStorage.getItem("token") ? (
               <div className="d-flex">
                 <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
-                  <Link to="/admin">
+                  <RouterLink to="/admin">
                     <button className="nav-admin-btn px-3 py-1 rounded-pill">
-                    {t(`homeNavbar.goToAdmin`)}
+                      {t(`homeNavbar.goToAdmin`)}
                     </button>
-                  </Link>
+                  </RouterLink>
                 </NavbarText>
                 <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
                   <button
@@ -185,16 +225,23 @@ function TopNavBar() {
                     buttonLabel={t(`homeNavbar.signIn`)}
                     title={t(`homeNavbar.signIn`)}
                     modalContent={<SignIn sendLoading={sendLoading} />}
-                    sendLoading={sendLoading}
+                    toggleModal={toggleModal}
+                    modal={modal}
                   />
                 </NavbarText>
                 <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
                   <CustomModal
                     className="header-btn  px-3 py-1 rounded-pill"
                     buttonLabel={t(`homeNavbar.signUp`)}
-                    modalContent={<SignUp />}
-                    regLoading={regLoading}
+                    modalContent={
+                      <SignUp
+                        toggleModal={toggleModalone}
+                        regLoading={regLoading}
+                      />
+                    }
                     size="lg"
+                    toggleModal={toggleModalone}
+                    modal={modalone}
                   />
                 </NavbarText>
               </div>

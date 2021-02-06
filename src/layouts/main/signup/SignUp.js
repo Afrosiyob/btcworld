@@ -6,9 +6,8 @@ import { useDispatch } from "react-redux";
 import { regUser } from "../../../store/auth/action";
 import { useTranslation } from "react-i18next";
 
-
-function SignUp() {
-  const [ t ] = useTranslation();
+function SignUp({ regLoading, toggleModal }) {
+  const [t] = useTranslation();
 
   const dispatch = useDispatch();
 
@@ -23,6 +22,8 @@ function SignUp() {
     formData.append("email", values.email);
     formData.append("phone", values.phone);
     formData.append("parent", values.parent);
+
+    toggleModal();
 
     dispatch(regUser(formData));
   };

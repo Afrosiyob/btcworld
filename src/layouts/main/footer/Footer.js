@@ -9,10 +9,10 @@ import ImgThree from "../../../assets/images/visa.png";
 import { useTranslation } from "react-i18next";
 
 function Footer() {
-  const [ t ] = useTranslation();
+  const [t] = useTranslation();
 
   return (
-    <div className="home-footer py-4" id="section5">
+    <div className="home-footer py-4" id="section4">
       <Container>
         <div className="footer-header d-flex w-100 justify-content-between align-content-center align-items-center">
           <div className="mob-footer-header">
@@ -134,11 +134,11 @@ function Footer() {
           <Col sm="12" md="4">
             <div className="right-box">
               <h4 className="text-uppercase">{t(`homeFooter.Titul8`)}</h4>
-                  <img src={ImgOne} className="m-2" width={100} alt="item" />
-                
-                  <img src={ImgThree} className="m-2" width={100} alt="item" />
-               
-                  <img src={ImgTwo} className="m-2" width={100} alt="item" />
+              <img src={ImgOne} className="m-2" width={100} alt="item" />
+
+              <img src={ImgThree} className="m-2" width={100} alt="item" />
+
+              <img src={ImgTwo} className="m-2" width={100} alt="item" />
             </div>
           </Col>
         </Row>

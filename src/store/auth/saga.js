@@ -1,4 +1,4 @@
-import { message } from "antd";
+import { message, notification } from "antd";
 import axios from "axios";
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
 import {
@@ -140,6 +140,13 @@ function* workRegUser({ payload }) {
     console.log(" reg res ====================================");
     console.log(response);
     console.log("====================================");
+
+    notification.success({
+      message: `Auth`,
+      description:
+        "Siz muvofaqqiyatli ro'yxatdan o'tdingiz iltimos gmailingizni tekshiring",
+      placement: "topRight",
+    });
   } else {
     console.log(" reg error ====================================");
     console.log(error);

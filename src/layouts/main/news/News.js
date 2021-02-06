@@ -9,8 +9,11 @@ import RightShape from "./RightShape/RightShape";
 import ImgOne from "../../../assets/images/new1.jpg";
 import ImgTwo from "../../../assets/images/new2.jpg";
 import ImgThree from "../../../assets/images/new3.jpg";
+import { useTranslation } from "react-i18next";
 
 function News() {
+  const [ t ] = useTranslation();
+
   return (
     <div className="home-pdf my-5 py-5 shadow-lg" id="section3">
       <LeftShape />
@@ -18,7 +21,7 @@ function News() {
 
       <Container>
         <h1 className="w-100 text-center font-weight-bold mb-4 position-relative">
-          News
+        {t(`homeHeader.Titul5`)}
         </h1>
 
         <div className="wrap-box">

@@ -7,13 +7,16 @@ import ImgThree from "../../../assets/images/photo_2021-01-13_12-14-56.jpg";
 import ImgFour from "../../../assets/images/photo_2021-01-13_12-15-10.jpg";
 
 import { Col, Container, Row } from "reactstrap";
+import { useTranslation } from "react-i18next";
 
 function About() {
+  const [ t ] = useTranslation();
+
   return (
     <div className="home-about my-5 py-5 shadow-lg">
       <Container>
         <h1 className="w-100 text-center font-weight-bold mb-4 position-relative">
-          About Us
+        {t(`homeNavbar.aboute`)}
         </h1>
         <Row>
           <Col sm="12" md="6">
@@ -46,26 +49,15 @@ function About() {
             <div className="right-box">
               <p>
                 {" "}
-                BUSINESS TREND COMPANY Who are we? We are a multidisciplinary
-                society. Knowledge of various fields, business trainings,
-                high-quality internships in travel and business, highly
-                profitable matrix models, the best quality of Internet services
-                in social networks, high-quality and reliable purchases from us.
-                The charity event is funded by BUSINESS TREND.
+                {t(`homeAbout.Title`)}
+                </p>
+              <p>
+                {" "}
+                {t(`homeAbout.Title2`)}
               </p>
               <p>
                 {" "}
-                The main principle is honesty with partners, transparency of
-                work and, of course, high income.Thousands of people who decided
-                to develop with us have already tried it and achieved high
-                results.
-              </p>
-              <p>
-                {" "}
-                The main principle is honesty with partners, transparency of
-                work and, of course, high income. Thousands of people who
-                decided to develop with us have already tried it and achieved
-                high results.
+                {t(`homeAbout.Title3`)}
               </p>
             </div>
           </Col>

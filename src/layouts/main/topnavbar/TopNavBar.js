@@ -164,7 +164,7 @@ function TopNavBar() {
                 <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
                   <Link to="/admin">
                     <button className="nav-admin-btn px-3 py-1 rounded-pill">
-                      Go to Admin
+                    {t(`homeNavbar.goToAdmin`)}
                     </button>
                   </Link>
                 </NavbarText>
@@ -173,7 +173,7 @@ function TopNavBar() {
                     className="nav-admin-btn px-3 py-1 rounded-pill"
                     onClick={() => logoutAction()}
                   >
-                    Log Out
+                    {t(`homeNavbar.logOut`)}
                   </button>
                 </NavbarText>
               </div>
@@ -182,8 +182,8 @@ function TopNavBar() {
                 <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
                   <CustomModal
                     className="header-btn  px-3 py-1 rounded-pill"
-                    buttonLabel="Sign In"
-                    title="sign in"
+                    buttonLabel={t(`homeNavbar.signIn`)}
+                    title={t(`homeNavbar.signIn`)}
                     modalContent={<SignIn sendLoading={sendLoading} />}
                     sendLoading={sendLoading}
                   />
@@ -191,7 +191,7 @@ function TopNavBar() {
                 <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
                   <CustomModal
                     className="header-btn  px-3 py-1 rounded-pill"
-                    buttonLabel="Sign up"
+                    buttonLabel={t(`homeNavbar.signUp`)}
                     modalContent={<SignUp />}
                     regLoading={regLoading}
                     size="lg"

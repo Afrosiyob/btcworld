@@ -6,8 +6,11 @@ import { Container, Row, Col } from "reactstrap";
 import ImgOne from "../../../assets/images/click.png";
 import ImgTwo from "../../../assets/images/payme-logo.png";
 import ImgThree from "../../../assets/images/visa.png";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+  const [ t ] = useTranslation();
+
   return (
     <div className="home-footer py-4" id="section5">
       <Container>
@@ -62,10 +65,10 @@ function Footer() {
 
           <div className="left-header">
             <h1 className="text-uppercase">BTC</h1>
-            <h4 className="text-uppercase">WE HELP THE PEOPLE</h4>
+            <h4 className="text-uppercase">{t(`homeFooter.Titul10`)}</h4>
           </div>
           <div className="right-header d-flex align-items-center align-content-center">
-            <h4>Write on: </h4>
+            <h4>{t(`homeFooter.Titul9`)} </h4>
 
             <Ripples color="rgba(255,255,255,0.5)" className="rounded-pill">
               <a href="#!">
@@ -99,7 +102,7 @@ function Footer() {
                     className="fas fa-map-marker-alt mr-2"
                     aria-hidden="true"
                   ></i>{" "}
-                  Amir Temur street, Tashkent city
+                  {t(`homeFooter.Titul`)}
                 </li>
                 <li>
                   <i className="fas fa-phone-alt mr-2" aria-hidden="true"></i>
@@ -118,19 +121,19 @@ function Footer() {
           </Col>
           <Col sm="12" md="4">
             <div className="mid-box">
-              <h4 className="text-uppercase">Home</h4>
+              <h4 className="text-uppercase">{t(`homeFooter.Titul2`)}</h4>
               <ul className="list-unstyled">
-                <li>About</li>
-                <li>Holding Structure</li>
-                <li>News</li>
-                <li>Legality</li>
-                <li>Contacts</li>
+                <li>{t(`homeFooter.Titul3`)}</li>
+                <li>{t(`homeFooter.Titul4`)}</li>
+                <li>{t(`homeFooter.Titul5`)}</li>
+                <li>{t(`homeFooter.Titul6`)}</li>
+                <li>{t(`homeFooter.Titul7`)}</li>
               </ul>
             </div>
           </Col>
           <Col sm="12" md="4">
             <div className="right-box">
-              <h4 className="text-uppercase">Payment System</h4>
+              <h4 className="text-uppercase">{t(`homeFooter.Titul8`)}</h4>
                   <img src={ImgOne} className="m-2" width={100} alt="item" />
                 
                   <img src={ImgThree} className="m-2" width={100} alt="item" />

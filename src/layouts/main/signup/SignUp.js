@@ -4,8 +4,12 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 import { useDispatch } from "react-redux";
 import { regUser } from "../../../store/auth/action";
+import { useTranslation } from "react-i18next";
+
 
 function SignUp() {
+  const [ t ] = useTranslation();
+
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
@@ -163,7 +167,7 @@ function SignUp() {
           className="form-btn px-3 py-1 rounded-pill"
           htmlType="submit"
         >
-          Sign Up
+          {t(`homeLogin.Titul2`)}
         </button>
       </Form.Item>
     </Form>

@@ -5,8 +5,12 @@ import "./SignIn.scss";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../../store/auth/action";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 
 function SignIn() {
+  const [ t ] = useTranslation();
+
   const dispatch = useDispatch();
 
   let history = useHistory();
@@ -74,7 +78,7 @@ function SignIn() {
           className="form-btn px-3 py-1 rounded-pill"
           htmlType="submit"
         >
-          Sign In
+          {t(`homeLogin.Titul`)}
         </button>
       </Form.Item>
     </Form>

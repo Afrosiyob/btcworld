@@ -8,7 +8,8 @@
         "contacts": "Contact",
         "signIn": "Sign In",
         "signUp": "Sign Up",
-        "lang": "Lang"
+        "goToAdmin": "Go to Admin",
+        "logOut": "Log Out"
     },
     "homeAbout": {
         "Title": "BUSINESS TREND COMPANY Who are we? We are a multidisciplinary society. Knowledge of various fields, business trainings, high-quality internships in travel and business, highly profitable matrix models, the best quality of Internet services in social networks, high-quality and reliable purchases from us. The charity event is funded by BUSINESS TREND.",
@@ -25,7 +26,7 @@
         "Titul7": "Contacts",
         "Titul8": "Payment System",
         "Titul9": "Write on:",
-        "Titul10": "we help the people"
+        "Titul10": "We help the people"
     },
     "homeHeader": {
         "Titul": "Business Trend Company",

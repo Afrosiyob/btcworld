@@ -1,3 +1,4 @@
+import { Affix } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
@@ -35,7 +36,8 @@ function TopNavBar() {
 
   let history = useHistory();
 
-  const { sendLoading } = useSelector((state) => state.userReducer);
+  const { sendLoading, regLoading } = useSelector((state) => state.userReducer);
+
   const dispatch = useDispatch();
 
   const logoutAction = () => {
@@ -44,13 +46,12 @@ function TopNavBar() {
 
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <div>
+    <Affix offsetTop={0}>
       <Navbar
-        className="shadow-lg"
+        // className="shadow-lg"
         style={{ backgroundColor: "rgb(232, 241, 255)" }}
         light
         expand="md"
-        fixed="top"
       >
         <Container fluid>
           <NavbarBrand href="/">
@@ -184,6 +185,7 @@ function TopNavBar() {
                     buttonLabel="Sign In"
                     title="sign in"
                     modalContent={<SignIn sendLoading={sendLoading} />}
+                    sendLoading={sendLoading}
                   />
                 </NavbarText>
                 <NavbarText className="ml-2 d-flex justify-content-center align-items-center">
@@ -191,6 +193,7 @@ function TopNavBar() {
                     className="header-btn  px-3 py-1 rounded-pill"
                     buttonLabel="Sign up"
                     modalContent={<SignUp />}
+                    regLoading={regLoading}
                     size="lg"
                   />
                 </NavbarText>
@@ -199,7 +202,7 @@ function TopNavBar() {
           </Collapse>
         </Container>
       </Navbar>
-    </div>
+    </Affix>
   );
 }
 

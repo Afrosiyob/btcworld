@@ -8,9 +8,7 @@ function Team() {
   const { treeData, getLoading } = useSelector((state) => state.treeReducer);
   const { userData } = useSelector((state) => state.userReducer);
   useEffect(() => {
-    if (userData.user.id) {
-      dispatch(getTree(userData.user.id));
-    }
+    dispatch(getTree(userData.user.id));
   }, [dispatch, userData]);
 
   return (

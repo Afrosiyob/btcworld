@@ -21,7 +21,7 @@ import Products from "./products/Products";
 import { useTranslation } from "react-i18next";
 
 function Admin() {
-  const { i18n, t } =useTranslation();
+  const { i18n, t } = useTranslation();
   const { Header, Content, Footer, Sider } = Layout;
 
   const [state, setState] = useState({
@@ -109,7 +109,7 @@ function Admin() {
                 <Col>
                   <Select
                     className="mr-3"
-                    defaultValue="uz"
+                    defaultValue={localStorage.getItem("i18nextLng")}
                     style={{ width: 80 }}
                     onChange={handleChange}
                   >

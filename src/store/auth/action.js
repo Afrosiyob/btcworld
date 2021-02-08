@@ -1,4 +1,7 @@
 import {
+  ACTIVATE_USER,
+  ACTIVATE_USER_ERROR,
+  ACTIVATE_USER_SUCCESS,
   EDIT_USER,
   EDIT_USER_ERROR,
   EDIT_USER_SUCCESS,
@@ -87,5 +90,20 @@ export const editUserSuccess = (response) => ({
 
 export const editUserError = (error) => ({
   type: EDIT_USER_ERROR,
+  payload: error,
+});
+
+export const activateUser = (activateData) => ({
+  type: ACTIVATE_USER,
+  payload: activateData,
+});
+
+export const activateUserSuccess = (response) => ({
+  type: ACTIVATE_USER_SUCCESS,
+  payload: response,
+});
+
+export const activateUserError = (error) => ({
+  type: ACTIVATE_USER_ERROR,
   payload: error,
 });

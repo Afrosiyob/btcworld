@@ -9,6 +9,8 @@ import {
   USER_LOG_OUT,
 } from "../actions";
 import {
+  editUserError,
+  editUserSuccess,
   userAutoLoginError,
   userAutoLoginSuccess,
   userLoginError,
@@ -161,9 +163,9 @@ function* watchEditUser() {
 
 function fetchEditUser(userData) {
   return axios
-    .post(`${process.env.REACT_APP_SERVER_URL}/logout/`, userData, {
+    .put(`${process.env.REACT_APP_SERVER_URL}update/`, userData, {
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
         Accept: "application/json",
         Authorization: `Token ${localStorage.getItem("token")}`,
       },
@@ -185,10 +187,13 @@ function* workEditUser({ payload }) {
     console.log("====================================");
     console.log(response);
     console.log("====================================");
+
+    yield put(editUserSuccess(response.data));
   } else {
     console.log("====================================");
-    console.log(error);
+    console.log(error.response);
     console.log("====================================");
+    yield put(editUserError(error));
   }
 }
 

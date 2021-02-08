@@ -10,11 +10,12 @@ import {
   Upload,
 } from "antd";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { InboxOutlined } from "@ant-design/icons";
 import HelmetTitle from "../../../components/Halmet/HelmetTitle";
 import { useTranslation } from "react-i18next";
 import Icon from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { InboxOutlined } from "@ant-design/icons";
+import { editUser } from "../../../store/auth/action";
 
 function Setting() {
   const UserIcon = () => <span>👨🏻‍💼</span>;
@@ -25,9 +26,33 @@ function Setting() {
   const { userData } = useSelector((state) => state.userReducer);
   const { Dragger } = Upload;
   const { user } = userData;
-
+  const dispatch = useDispatch();
   const [state, setState] = useState({ fileListTwo: [] });
   const { fileListTwo } = state;
+  const [form] = Form.useForm();
+
+  if (user) {
+    form.setFieldsValue({
+      // formData.append("first_name", values.first_name);
+      // formData.append("last_name", values.last_name);
+
+      // formData.append("image", fileListTwo[0]);
+      // formData.append("about_me", values.about_me);
+      // formData.append("social_link", values.social_link);
+      // formData.append("telegram", values.telegram);
+      // formData.append("phone", values.phone);
+
+      first_name: user.first_name,
+      last_name: user.last_name,
+      about_me: user.about_me,
+      social_link: user.social_link,
+      phone: user.phone,
+      username: user.username,
+      email: user.email,
+      telegram: user.telegram,
+    });
+  }
+
   const propsFileTwo = {
     listType: "picture",
     multiple: false,
@@ -53,20 +78,24 @@ function Setting() {
   };
 
   const onFinish = (values) => {
-    console.log("Success:", values);
+    // console.log("Success:", values);
     const { fileListTwo } = state;
 
     let formData = new FormData();
 
-    formData.append("first_name", values.ism);
-    formData.append("last_name", values.familiya);
-    // formData.append("image", values.image);
+    formData.append("first_name", values.first_name);
+    formData.append("last_name", values.last_name);
+
     formData.append("image", fileListTwo[0]);
-    formData.append("about_me", values.abouteme);
-    formData.append("social_link", values.link);
+    formData.append("about_me", values.about_me);
+    formData.append("social_link", values.social_link);
     formData.append("telegram", values.telegram);
-    formData.append("phone", values.phonenumber);
-    formData.append("qr_code", values.qr_code);
+    formData.append("phone", values.phone);
+    formData.append("email", values.email);
+    formData.append("username", values.username);
+    // formData.append("qr_code", values.qr_code);
+
+    dispatch(editUser(formData));
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -82,7 +111,7 @@ function Setting() {
         <Col sm={24} md={6}>
           <h4 className="w-100 text-muted mb-3">{t(`settings.Titul`)}</h4>
           <Card>
-            <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+            <Image src={user.image} />
 
             <Divider />
             <div className="user-information">
@@ -129,6 +158,7 @@ function Setting() {
           <h4 className="w-100 text-muted mb-3">{t(`settings.Titul2`)}</h4>
           <Card>
             <Form
+              form={form}
               name="basic"
               onFinish={onFinish}
               layout="vertical"

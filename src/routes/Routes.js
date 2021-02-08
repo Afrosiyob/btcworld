@@ -8,7 +8,7 @@ const MainLazy = lazy(() => import("../pages/main/Main"));
 function Routes() {
   return (
     <Switch>
-      <Route path="/" exact component={MainLazy} />
+      <Route path={["/", "/verify/:id/:token"]} exact component={MainLazy} />
       <ProtectedRouteAdmin path="/admin" component={AdminLazy} />
     </Switch>
   );

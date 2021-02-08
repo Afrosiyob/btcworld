@@ -68,7 +68,11 @@ export const userReducer = (state = INIT_STATE, { type, payload }) => {
       return { ...state, editLoading: true };
 
     case EDIT_USER_SUCCESS:
-      return { ...state, editLoading: false };
+      return {
+        ...state,
+        editLoading: false,
+        userData: { ...state.userData, user: payload.user },
+      };
 
     case EDIT_USER_ERROR:
       return { ...state, editLoading: false, error: payload };

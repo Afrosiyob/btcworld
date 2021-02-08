@@ -3,10 +3,13 @@ import React from "react";
 import { Table } from "antd";
 import AntModal from "./AntModal/AntModal";
 import TeamData from "../TeamData/TeamData";
+// import { useTranslation } from "react-i18next";
 
 // rowSelection objects indicates the need for row selection
 
 export function TeamTable({ treeData, getLoading }) {
+  // const { t }= useTranslation();
+
   const columns = [
     {
       title: "Login",

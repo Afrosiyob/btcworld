@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { Button, Col, Row, Table } from "antd";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../../store/products/action";
+import { useTranslation } from "react-i18next";
+import HelmetTitle from "../../../components/Halmet/HelmetTitle";
 
 function Products() {
+  const { t }= useTranslation();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,6 +44,7 @@ function Products() {
   ];
   return (
     <div>
+    <HelmetTitle title={t(`Admin.Titul4`)} />
       <Row
         gutter={[8, 8]}
         className="mb-3"

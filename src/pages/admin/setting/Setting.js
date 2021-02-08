@@ -12,8 +12,11 @@ import {
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { UserOutlined, InboxOutlined } from "@ant-design/icons";
+import HelmetTitle from "../../../components/Halmet/HelmetTitle";
+import { useTranslation } from "react-i18next";
 
 function Setting() {
+  const { t }= useTranslation();
   const { userData } = useSelector((state) => state.userReducer);
   const { Dragger } = Upload;
   const { user } = userData;
@@ -53,6 +56,7 @@ function Setting() {
 
   return (
     <div>
+    <HelmetTitle title={t(`Admin.Titul6`)} />
       <h2 className="w-100 text-muted mb-3">Products</h2>
 
       <Row gutter={[8, 8]}>

@@ -192,7 +192,7 @@ function TopNavBar() {
                     }}
                     className="m-2 border-0 text-primary bg-light"
                   >
-                    <img src={Ru} width={25} alt="uz" /> Ru
+                    <img src={Ru} width={20} alt="ru" /> Ru
                   </Button>
                 </NavLink>
               </NavItem>
@@ -232,6 +232,7 @@ function TopNavBar() {
                   <CustomModal
                     className="header-btn  px-3 py-1 rounded-pill"
                     buttonLabel={t(`homeNavbar.signUp`)}
+                    title={t(`homeNavbar.signUp`)}
                     modalContent={
                       <SignUp
                         toggleModal={toggleModalone}

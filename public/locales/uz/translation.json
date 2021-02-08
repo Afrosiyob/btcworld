@@ -43,12 +43,12 @@
   "homeLogin": {
     "Titul": "Kirish",
     "Titul2": "Ro'yxatdan o'tish",
-    "Titul3": "Ismingizni kiriting...",
+    "Titul3": "Foydalanuvchi nomingizni kiriting ...",
     "Titul4": "Parolingizni kiriting...",
     "Titul5": "Elektron pochtangizni kiriting...",
     "Titul6": "Parolingizni qaytadan kiriting...",
     "Titul7": "Telefon raqamingizni kiriting...",
-    "Titul8": "Partner",
+    "Titul8": "Hamkor",
     "Titul9": "Men robot emasman.",
     "Titul10": "Parolingizni unutdingizmi?"
   },
@@ -67,5 +67,21 @@
     "Titul4": "Xayriya uchun ajratilgan",
     "Titul5": "Shaxsan taklif qilingan",
     "Titul6": "Jami"
+  },
+  "label": {
+    "username": "Foydalanuvchi nomi",
+    "pass": "Parol",
+    "phone": "Telefon",
+    "email": "Elektron pochta",
+    "partner": "Hamkor",
+    "repass": "Parolni qayta kiriting"
+  },
+  "message": {
+    "username": "Iltimos, foydalanuvchi ismingizni kiriting!",
+    "pass": "Parolingizni kiriting!",
+    "phone": "Telefon",
+    "email": "Kirish haqiqiy emas Elektron pochta!",
+    "email2": "Iltimos, elektron pochtangizni kiriting!",
+    "partner": "Hamkor!"
   }
 }

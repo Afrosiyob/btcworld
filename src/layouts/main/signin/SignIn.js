@@ -37,29 +37,29 @@ function SignIn({ sendLoading }) {
       onFinishFailed={onFinishFailed}
     >
       <Form.Item
-        label="Username"
+        label={t(`label.username`)}
         name="username"
         rules={[
           {
             required: true,
-            message: "Please input your username!",
+            message: t(`message.username`),
           },
         ]}
       >
         <Input
           className="rounded-pill"
           prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="Username"
+          placeholder= {t(`homeLogin.Titul3`)}
         />
       </Form.Item>
 
       <Form.Item
-        label="Password"
+        label={t(`label.pass`)}
         name="password"
         rules={[
           {
             required: true,
-            message: "Please input your password!",
+            message:  t(`message.pass`),
           },
         ]}
       >
@@ -67,7 +67,7 @@ function SignIn({ sendLoading }) {
           className="rounded-pill"
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
-          placeholder="Password"
+          placeholder={t(`homeLogin.Titul4`)}
         />
       </Form.Item>
 

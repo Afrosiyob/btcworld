@@ -33,15 +33,6 @@ function Setting() {
 
   if (user) {
     form.setFieldsValue({
-      // formData.append("first_name", values.first_name);
-      // formData.append("last_name", values.last_name);
-
-      // formData.append("image", fileListTwo[0]);
-      // formData.append("about_me", values.about_me);
-      // formData.append("social_link", values.social_link);
-      // formData.append("telegram", values.telegram);
-      // formData.append("phone", values.phone);
-
       first_name: user.first_name,
       last_name: user.last_name,
       about_me: user.about_me,
@@ -111,44 +102,51 @@ function Setting() {
         <Col sm={24} md={6}>
           <h4 className="w-100 text-muted mb-3">{t(`settings.Titul`)}</h4>
           <Card>
-            <Image src={user.image} />
+            <Image src={user.image ? user.image : ""} />
 
             <Divider />
             <div className="user-information">
               <div className="information-item mb-2">
                 <h6 className="text-muted ">
-                  {t(`label.username`)} {user.first_name}
+                  {t(`label.username`)} {user.first_name ? user.first_name : ""}
                 </h6>
                 <p className="font-weight-bolder ml-2">
                   <Icon component={UserIcon} className="text-muted mr-2" />{" "}
-                  {user.username}
+                  {user.username ? user.username : ""}
                 </p>
               </div>
               <div className="information-item mb-2">
                 <h6 className="text-muted">{t(`label.email`)}</h6>
                 <p className="font-weight-bolder ml-2">
-                  <i className="fas fa-at text-muted mr-2"></i> {user.email}
+                  <i className="fas fa-at text-muted mr-2"></i>{" "}
+                  {user.email ? user.email : ""}
                 </p>
               </div>
               <div className="information-item mb-2">
                 <h6 className="text-muted ">{t(`settings.Titul3`)}</h6>
                 <p className="font-weight-bolder ml-2">
-                <Icon component={BalansIcon} className="fas fa-at text-muted mr-2" />{" "}
-                  {user.balance} sum
+                  <Icon
+                    component={BalansIcon}
+                    className="fas fa-at text-muted mr-2"
+                  />{" "}
+                  {user.balance ? user.balance : ""} sum
                 </p>
               </div>{" "}
               <div className="information-item mb-2">
                 <h6 className="text-muted ">{t(`settings.Titul4`)}</h6>
                 <p className="font-weight-bolder ml-2">
                   <i className="fas fa-shield-alt text-muted mr-2"></i>{" "}
-                  {user.status_plan}
+                  {user.status_plan ? user.status_plan : ""}
                 </p>
               </div>
               <div className="information-item mb-2">
                 <h6 className="text-muted ">{t(`settings.Titul5`)}</h6>
                 <p className="font-weight-bolder ml-2">
-                <Icon component={TimeIcon} className="fas fa-at text-muted mr-2" />{" "}
-                  {user.date_joined}{" "}
+                  <Icon
+                    component={TimeIcon}
+                    className="fas fa-at text-muted mr-2"
+                  />{" "}
+                  {user.date_joined ? user.date_joined : ""}{" "}
                 </p>
               </div>
             </div>

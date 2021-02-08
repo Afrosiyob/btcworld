@@ -3,12 +3,14 @@ import { Col, Row } from "antd";
 import StatisticCard from "./StatisticCard/StatisticCard";
 import StatisticChart from "./StatisticChart/StatisticChart";
 import { useTranslation } from "react-i18next";
+import HelmetTitle from "../../../components/Halmet/HelmetTitle";
 
 function Statistics() {
   const { t } =useTranslation();
   
   return (
     <div>
+    <HelmetTitle title={t(`Admin.Titul2`)} />
       <h2 className="w-100 text-muted mb-3">{t(`Statistics.Titul`)}</h2>
 
       <Row gutter={[15, 15]}>

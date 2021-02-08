@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-
+import { useTranslation } from "react-i18next";
 import { Modal, Button } from "antd";
 
 function AntModal({ userEmail, userLink, userName, userTelegram, userImage }) {
+  const { t }= useTranslation();
   const [visible, setvisible] = useState(false);
 
   const showModal = () => {
@@ -21,7 +22,7 @@ function AntModal({ userEmail, userLink, userName, userTelegram, userImage }) {
 
   return (
     <div>
-      <Button onClick={showModal}>Information</Button>
+      <Button onClick={showModal}>{t(`team.Titul4`)}</Button>
       <Modal
         centered={true}
         title={userName}

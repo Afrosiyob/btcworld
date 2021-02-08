@@ -3,36 +3,39 @@ import React from "react";
 import { Table } from "antd";
 import AntModal from "./AntModal/AntModal";
 import TeamData from "../TeamData/TeamData";
+import { useTranslation } from "react-i18next";
 
 // rowSelection objects indicates the need for row selection
 
 export function TeamTable({ treeData, getLoading }) {
+  const { t }= useTranslation();
+
   const columns = [
     {
-      title: "Login",
+      title: t(`label.username`),
       dataIndex: "login",
       key: "login",
       fixed: "left",
     },
     {
-      title: "Telegram",
+      title: t(`team.Titul2`),
       dataIndex: "telegram",
       key: "telegram",
     },
     {
-      title: "Link",
+      title: t(`label.email`),
       dataIndex: "link",
       key: "link",
     },
 
     {
-      title: "Partners",
+      title: t(`team.Titul3`),
       dataIndex: "partners",
       key: "partners",
       width: "10%",
     },
     {
-      title: "About",
+      title: t(`homeFooter.Titul3`),
       dataIndex: "about",
       key: "about",
       width: "10%",

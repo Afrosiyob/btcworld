@@ -1,7 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import HelmetTitle from "../../../components/Halmet/HelmetTitle";
 
 function Plans() {
-  return <div>this is plans</div>;
+  const { t } = useTranslation();
+  return (
+    <div>
+      <HelmetTitle title={t(`Admin.Titul5`)} />
+      this is plans
+    </div>
+  );
 }
 
 export default Plans;

@@ -58,7 +58,7 @@
     "Titul3": "Jamoa",
     "Titul4": "Mahsulotlar",
     "Titul5": "Rejalar",
-    "Titul6": "O'rnatish"
+    "Titul6": "Sozlamalar"
   },
   "Statistics": {
     "Titul": "Jamoa tarkibida",
@@ -77,11 +77,46 @@
     "repass": "Parolni qayta kiriting"
   },
   "message": {
-    "username": "Iltimos, foydalanuvchi ismingizni kiriting!",
+    "username": "Iltimos, foydalanuvchi nomingizni kiriting!",
     "pass": "Parolingizni kiriting!",
-    "phone": "Telefon",
-    "email": "Kirish haqiqiy emas Elektron pochta!",
+    "phone": "Iltimos, telefoningizni kiriting!",
+    "email": "Elektron pochta yaroqli emas!",
     "email2": "Iltimos, elektron pochtangizni kiriting!",
-    "partner": "Hamkor!"
+    "partner": "Hamkor!",
+    "firstname": "Iltimos, ismingizni kiriting!",
+    "lastname": "Iltimos, familiyangizni kiriting!",
+    "about_me": "Iltimos, o'zingiz haqingizda kiriting!",
+    "social_link": "Kiritilgan elektron manzil haqiqiy emas!",
+    "social_link2": "Iltimos, elektron ijtimoiy havolangizni kiriting!",
+    "telegram": "Iltimos, telegramdagi foydalanuvchi ismingizni kiriting!"
+  },
+  "team": {
+    "Titul": "Barcha guruh a'zolari",
+    "Titul2": "Telegram",
+    "Titul3": "Hamkorlar",
+    "Titul4": "Ma'lumot"
+  },
+  "settings": {
+    "Titul": "Asosiy ma'lumot",
+    "Titul2": "O'zgarish",
+    "Titul3": "Balans",
+    "Titul4": "Holat",
+    "Titul5": "Vaqt",
+    "Titul6": "Yuklash uchun ushbu maydonga faylni bosing yoki torting",
+    "Titul7": "Bitta yoki ommaviy yuklashni qo'llab-quvvatlash. Kompaniya ma'lumotlarini yoki boshqa tarmoq fayllarini yuklashni qat'iyan taqiqlang",
+    "Titul8": "Foydalanuvchi fotosurati",
+    "Titul9": "Ism",
+    "Titul10": "Familiya",
+    "Titul11": "Men haqimda",
+    "Titul12": "Elektron ijtimoiy aloqa",
+    "Titul13": "Ma'lumotlarni yuboring"
+  },
+  "products": {
+    "Titul": "",
+    "Titul2": "",
+    "Titul3": "",
+    "Titul4": "",
+    "Titul5": "",
+    "Titul6": ""
   }
 }

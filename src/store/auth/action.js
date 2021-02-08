@@ -1,4 +1,7 @@
 import {
+  EDIT_USER,
+  EDIT_USER_ERROR,
+  EDIT_USER_SUCCESS,
   REG_USER,
   REG_USER_ERROR,
   REG_USER_SUCCESS,
@@ -69,5 +72,20 @@ export const regUserSuccess = (response) => ({
 
 export const regUserError = (error) => ({
   type: REG_USER_ERROR,
+  payload: error,
+});
+
+export const editUser = (userData) => ({
+  type: EDIT_USER,
+  payload: userData,
+});
+
+export const editUserSuccess = (response) => ({
+  type: EDIT_USER_SUCCESS,
+  payload: response,
+});
+
+export const editUserError = (error) => ({
+  type: EDIT_USER_ERROR,
   payload: error,
 });

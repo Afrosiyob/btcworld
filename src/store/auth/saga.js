@@ -2,6 +2,7 @@ import { message, notification } from "antd";
 import axios from "axios";
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
 import {
+  EDIT_USER,
   REG_USER,
   USER_AUTO_LOGIN,
   USER_LOGIN,
@@ -154,11 +155,49 @@ function* workRegUser({ payload }) {
   }
 }
 
+function* watchEditUser() {
+  yield takeEvery(EDIT_USER, workEditUser);
+}
+
+function fetchEditUser(userData) {
+  return axios
+    .post(`${process.env.REACT_APP_SERVER_URL}/logout/`, userData, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${localStorage.getItem("token")}`,
+      },
+    })
+    .then((response) => {
+      return { response };
+    })
+    .catch((error) => {
+      return { error };
+    });
+}
+
+function* workEditUser({ payload }) {
+  const userData = payload;
+
+  const { response, error } = yield call(fetchEditUser, userData);
+
+  if (response) {
+    console.log("====================================");
+    console.log(response);
+    console.log("====================================");
+  } else {
+    console.log("====================================");
+    console.log(error);
+    console.log("====================================");
+  }
+}
+
 export default function* rootSaga() {
   yield all([
     fork(watchUserLogin),
     fork(watchUserAutoLogin),
     fork(watchUserLogOutUser),
     fork(watchRegUser),
+    fork(watchEditUser),
   ]);
 }

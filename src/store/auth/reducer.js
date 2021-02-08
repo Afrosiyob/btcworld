@@ -1,4 +1,7 @@
 import {
+  EDIT_USER,
+  EDIT_USER_ERROR,
+  EDIT_USER_SUCCESS,
   REG_USER,
   REG_USER_ERROR,
   REG_USER_SUCCESS,
@@ -18,6 +21,7 @@ const INIT_STATE = {
   autoLoading: false,
   logOutLoading: false,
   regLoading: false,
+  editLoading: false,
   userData: [],
   error: "",
 };
@@ -59,6 +63,15 @@ export const userReducer = (state = INIT_STATE, { type, payload }) => {
 
     case REG_USER_ERROR:
       return { ...state, regLoading: false, error: payload };
+
+    case EDIT_USER:
+      return { ...state, editLoading: true };
+
+    case EDIT_USER_SUCCESS:
+      return { ...state, editLoading: false };
+
+    case EDIT_USER_ERROR:
+      return { ...state, editLoading: false, error: payload };
 
     default:
       return { ...state };

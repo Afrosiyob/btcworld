@@ -17,13 +17,6 @@ function Setting() {
   const { userData } = useSelector((state) => state.userReducer);
   const { Dragger } = Upload;
   const { user } = userData;
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
 
   const [state, setState] = useState({ fileListTwo: [] });
   const { fileListTwo } = state;
@@ -49,6 +42,27 @@ function Setting() {
       return false;
     },
     fileListTwo,
+  };
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
+    const { fileListTwo } = state;
+
+    let formData = new FormData();
+
+    formData.append("first_name", values.ism);
+    formData.append("last_name", values.familiya);
+    // formData.append("image", values.image);
+    formData.append("image", fileListTwo[0]);
+    formData.append("about_me", values.abouteme);
+    formData.append("social_link", values.link);
+    formData.append("telegram", values.telegram);
+    formData.append("phone", values.phonenumber);
+    formData.append("qr_code", values.qr_code);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -109,7 +123,7 @@ function Setting() {
               layout="vertical"
               onFinishFailed={onFinishFailed}
             >
-              <Form.Item label="User Photo" name="profile_image">
+              <Form.Item label="User Photo" name="image">
                 <Dragger {...propsFileTwo}>
                   <p className="ant-upload-drag-icon">
                     <InboxOutlined />
@@ -203,7 +217,7 @@ function Setting() {
               </Row>
 
               <Row gutter={[8, 8]}>
-                <Col sm={12} md={24}>
+                <Col sm={24} md={12}>
                   <Form.Item
                     label="about_me"
                     name="about_me"
@@ -214,19 +228,19 @@ function Setting() {
                       },
                     ]}
                   >
-                    <Input
-                      className="rounded-pill"
+                    <Input.TextArea
+                      className="rounded"
                       prefix={<UserOutlined className="site-form-item-icon" />}
                     />
                   </Form.Item>
                 </Col>
-                <Col sm={12} md={24}>
+                <Col sm={24} md={12}>
                   <Form.Item
                     name="social_link"
                     label="E-social_link"
                     rules={[
                       {
-                        type: "social_link",
+                        type: "email",
                         message: "The input is not valid E-social_link!",
                       },
                       {
@@ -245,7 +259,7 @@ function Setting() {
               </Row>
 
               <Row gutter={[8, 8]}>
-                <Col sm={12} md={24}>
+                <Col sm={24} md={12}>
                   <Form.Item
                     label="telegram"
                     name="telegram"
@@ -262,28 +276,52 @@ function Setting() {
                     />
                   </Form.Item>
                 </Col>
-                <Col sm={12} md={24}></Col>
+                <Col sm={24} md={12}>
+                  <Form.Item
+                    label="phone"
+                    name="phone"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your phone!",
+                      },
+                    ]}
+                  >
+                    <Input
+                      className="rounded-pill"
+                      prefix={<UserOutlined className="site-form-item-icon" />}
+                    />
+                  </Form.Item>
+                </Col>
               </Row>
 
-              <Form.Item
-                label="Password"
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your password!",
-                  },
-                ]}
-              >
-                <Input.Password
-                  className="rounded-pill"
-                  prefix={<UserOutlined className="site-form-item-icon" />}
-                />
-              </Form.Item>
+              {/* <Row gutter={[8, 8]}>
+                <Col sm={24} md={12}>
+                  <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your password!",
+                      },
+                    ]}
+                  >
+                    <Input.Password
+                      className="rounded-pill"
+                      prefix={<UserOutlined className="site-form-item-icon" />}
+                    />
+                  </Form.Item>
+                </Col>
+              </Row> */}
 
               <Form.Item>
-                <Button type="primary" htmlType="submit">
-                  Submit
+                <Button
+                  type="primary"
+                  className="rounded-pill"
+                  htmlType="submit"
+                >
+                  Send Data
                 </Button>
               </Form.Item>
             </Form>

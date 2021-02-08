@@ -11,12 +11,17 @@ import {
 } from "antd";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { UserOutlined, InboxOutlined } from "@ant-design/icons";
+import { InboxOutlined } from "@ant-design/icons";
 import HelmetTitle from "../../../components/Halmet/HelmetTitle";
 import { useTranslation } from "react-i18next";
+import Icon from "@ant-design/icons";
 
 function Setting() {
-  const { t }= useTranslation();
+  const UserIcon = () => <span>👨🏻‍💼</span>;
+  const BalansIcon = () => <span>💰</span>;
+  const TimeIcon = () => <span>⏱</span>;
+  const UserIconSmall = () => <span>👤</span>;
+  const { t } = useTranslation();
   const { userData } = useSelector((state) => state.userReducer);
   const { Dragger } = Upload;
   const { user } = userData;
@@ -70,48 +75,50 @@ function Setting() {
 
   return (
     <div>
-    <HelmetTitle title={t(`Admin.Titul6`)} />
-      <h2 className="w-100 text-muted mb-3">Products</h2>
+      <HelmetTitle title={t(`Admin.Titul6`)} />
+      <h2 className="w-100 text-muted mb-3">{t(`Admin.Titul6`)}</h2>
 
       <Row gutter={[8, 8]}>
         <Col sm={24} md={6}>
-          <h4 className="w-100 text-muted mb-3">Basic info</h4>
+          <h4 className="w-100 text-muted mb-3">{t(`settings.Titul`)}</h4>
           <Card>
             <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
 
             <Divider />
             <div className="user-information">
               <div className="information-item mb-2">
-                <h6 className="text-muted ">Username {user.first_name}</h6>
+                <h6 className="text-muted ">
+                  {t(`label.username`)} {user.first_name}
+                </h6>
                 <p className="font-weight-bolder ml-2">
-                  <i className="fas fa-user text-muted mr-2"></i>{" "}
+                  <Icon component={UserIcon} className="text-muted mr-2" />{" "}
                   {user.username}
                 </p>
               </div>
               <div className="information-item mb-2">
-                <h6 className="text-muted">Email</h6>
+                <h6 className="text-muted">{t(`label.email`)}</h6>
                 <p className="font-weight-bolder ml-2">
                   <i className="fas fa-at text-muted mr-2"></i> {user.email}
                 </p>
               </div>
               <div className="information-item mb-2">
-                <h6 className="text-muted ">Balans</h6>
+                <h6 className="text-muted ">{t(`settings.Titul3`)}</h6>
                 <p className="font-weight-bolder ml-2">
-                  <i className="fas fa-wallet text-muted mr-2"></i>{" "}
+                <Icon component={BalansIcon} className="fas fa-at text-muted mr-2" />{" "}
                   {user.balance} sum
                 </p>
               </div>{" "}
               <div className="information-item mb-2">
-                <h6 className="text-muted ">Status</h6>
+                <h6 className="text-muted ">{t(`settings.Titul4`)}</h6>
                 <p className="font-weight-bolder ml-2">
                   <i className="fas fa-shield-alt text-muted mr-2"></i>{" "}
                   {user.status_plan}
                 </p>
               </div>
               <div className="information-item mb-2">
-                <h6 className="text-muted ">Time</h6>
+                <h6 className="text-muted ">{t(`settings.Titul5`)}</h6>
                 <p className="font-weight-bolder ml-2">
-                  <i className="fas fa-user-clock text-muted mr-2"></i>{" "}
+                <Icon component={TimeIcon} className="fas fa-at text-muted mr-2" />{" "}
                   {user.date_joined}{" "}
                 </p>
               </div>
@@ -119,7 +126,7 @@ function Setting() {
           </Card>
         </Col>
         <Col sm={24} md={18}>
-          <h4 className="w-100 text-muted mb-3">Changing</h4>
+          <h4 className="w-100 text-muted mb-3">{t(`settings.Titul2`)}</h4>
           <Card>
             <Form
               name="basic"
@@ -127,53 +134,48 @@ function Setting() {
               layout="vertical"
               onFinishFailed={onFinishFailed}
             >
-              <Form.Item label="User Photo" name="image">
+              <Form.Item label={t(`settings.Titul8`)} name="image">
                 <Dragger {...propsFileTwo}>
                   <p className="ant-upload-drag-icon">
                     <InboxOutlined />
                   </p>
-                  <p className="ant-upload-text">
-                    Click or drag file to this area to upload
-                  </p>
-                  <p className="ant-upload-hint">
-                    Support for a single or bulk upload. Strictly prohibit from
-                    uploading company data or other band files
-                  </p>
+                  <p className="ant-upload-text">{t(`settings.Titul6`)}</p>
+                  <p className="ant-upload-hint">{t(`settings.Titul7`)}</p>
                 </Dragger>
               </Form.Item>
 
               <Row gutter={[8, 8]}>
                 <Col sm={24} md={12}>
                   <Form.Item
-                    label="username"
+                    label={t(`label.username`)}
                     name="username"
                     rules={[
                       {
                         required: true,
-                        message: "Please input your username!",
+                        message: t(`message.username`),
                       },
                     ]}
                   >
                     <Input
                       className="rounded-pill"
-                      prefix={<UserOutlined className="site-form-item-icon" />}
+                      prefix={<UserIconSmall className="site-form-item-icon" />}
                     />
                   </Form.Item>
                 </Col>
                 <Col sm={24} md={12}>
                   <Form.Item
-                    label="first_name"
+                    label={t(`settings.Titul9`)}
                     name="first_name"
                     rules={[
                       {
                         required: true,
-                        message: "Please input your first_name!",
+                        message: t(`message.firstname`),
                       },
                     ]}
                   >
                     <Input
                       className="rounded-pill"
-                      prefix={<UserOutlined className="site-form-item-icon" />}
+                      prefix={<UserIconSmall className="site-form-item-icon" />}
                     />
                   </Form.Item>
                 </Col>
@@ -181,40 +183,40 @@ function Setting() {
               <Row gutter={[8, 8]}>
                 <Col sm={24} md={12}>
                   <Form.Item
-                    label="last_name"
+                    label={t(`settings.Titul10`)}
                     name="last_name"
                     rules={[
                       {
                         required: true,
-                        message: "Please input your last_name!",
+                        message: t(`message.lastname`),
                       },
                     ]}
                   >
                     <Input
                       className="rounded-pill"
-                      prefix={<UserOutlined className="site-form-item-icon" />}
+                      prefix={<UserIconSmall className="site-form-item-icon" />}
                     />
                   </Form.Item>
                 </Col>
                 <Col sm={24} md={12}>
                   <Form.Item
                     name="email"
-                    label="E-mail"
+                    label={t(`label.email`)}
                     rules={[
                       {
                         type: "email",
-                        message: "The input is not valid E-mail!",
+                        message: t(`message.email`),
                       },
                       {
                         required: true,
-                        message: "Please input your E-mail!",
+                        message: t(`message.email2`),
                       },
                     ]}
                   >
                     <Input
                       className="rounded-pill"
-                      prefix={<UserOutlined className="site-form-item-icon" />}
-                      placeholder="E-mail"
+                      prefix={<UserIconSmall className="site-form-item-icon" />}
+                      placeholder={t(`label.email`)}
                     />
                   </Form.Item>
                 </Col>
@@ -223,40 +225,40 @@ function Setting() {
               <Row gutter={[8, 8]}>
                 <Col sm={24} md={12}>
                   <Form.Item
-                    label="about_me"
+                    label={t(`settings.Titul11`)}
                     name="about_me"
                     rules={[
                       {
                         required: true,
-                        message: "Please input your about_me!",
+                        message: t(`message.about_me`),
                       },
                     ]}
                   >
                     <Input.TextArea
                       className="rounded"
-                      prefix={<UserOutlined className="site-form-item-icon" />}
+                      prefix={<UserIconSmall className="site-form-item-icon" />}
                     />
                   </Form.Item>
                 </Col>
                 <Col sm={24} md={12}>
                   <Form.Item
                     name="social_link"
-                    label="E-social_link"
+                    label={t(`settings.Titul12`)}
                     rules={[
                       {
                         type: "email",
-                        message: "The input is not valid E-social_link!",
+                        message: t(`message.social_link`),
                       },
                       {
                         required: true,
-                        message: "Please input your E-social_link!",
+                        message: t(`message.social_link2`),
                       },
                     ]}
                   >
                     <Input
                       className="rounded-pill"
-                      prefix={<UserOutlined className="site-form-item-icon" />}
-                      placeholder="E-social_link"
+                      prefix={<UserIconSmall className="site-form-item-icon" />}
+                      placeholder={t(`settings.Titul12`)}
                     />
                   </Form.Item>
                 </Col>
@@ -265,35 +267,35 @@ function Setting() {
               <Row gutter={[8, 8]}>
                 <Col sm={24} md={12}>
                   <Form.Item
-                    label="telegram"
+                    label={t(`team.Titul2`)}
                     name="telegram"
                     rules={[
                       {
                         required: true,
-                        message: "Please input your telegram!",
+                        message: t(`message.telegram`),
                       },
                     ]}
                   >
                     <Input
                       className="rounded-pill"
-                      prefix={<UserOutlined className="site-form-item-icon" />}
+                      prefix={<UserIconSmall className="site-form-item-icon" />}
                     />
                   </Form.Item>
                 </Col>
                 <Col sm={24} md={12}>
                   <Form.Item
-                    label="phone"
+                    label={t(`label.phone`)}
                     name="phone"
                     rules={[
                       {
                         required: true,
-                        message: "Please input your phone!",
+                        message: t(`message.phone`),
                       },
                     ]}
                   >
                     <Input
                       className="rounded-pill"
-                      prefix={<UserOutlined className="site-form-item-icon" />}
+                      prefix={<UserIconSmall className="site-form-item-icon" />}
                     />
                   </Form.Item>
                 </Col>
@@ -325,7 +327,7 @@ function Setting() {
                   className="rounded-pill"
                   htmlType="submit"
                 >
-                  Send Data
+                  {t(`settings.Titul13`)}
                 </Button>
               </Form.Item>
             </Form>

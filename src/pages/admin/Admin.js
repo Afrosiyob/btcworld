@@ -11,7 +11,7 @@ import {
   Tooltip,
   Select,
 } from "antd";
-
+import Icon from "@ant-design/icons";
 import "./Admin.scss";
 import Statistics from "./statistics/Statistics";
 import Plans from "./plans/Plans";
@@ -21,6 +21,12 @@ import Products from "./products/Products";
 import { useTranslation } from "react-i18next";
 
 function Admin() {
+  const HomeIcon = () => <span>🏠</span>;
+  const ChartIcon = () => <span>📈</span>;
+  const TeamIcon = () => <span>👩‍👩‍👧‍👧</span>;
+  const ProductIcon = () => <span>🛍</span>;
+  const PlansIcon = () => <span>🗒</span>;
+  const SettingsIcon = () => <span>⚙️</span>;
   const { i18n, t } = useTranslation();
   const { Header, Content, Footer, Sider } = Layout;
 
@@ -72,24 +78,24 @@ function Admin() {
             </div>
 
             <Menu theme="dark" defaultSelectedKeys={["2"]} mode="inline">
-              <Menu.Item key="1">
-                <Link to="/">🏠 {t(`Admin.Titul`)} </Link>
+              <Menu.Item key="1" icon={<Icon component={HomeIcon} />}>
+                <Link to="/"> {t(`Admin.Titul`)} </Link>
               </Menu.Item>
-              <Menu.Item key="2">
-                <Link to="/admin/statistics">📈 {t(`Admin.Titul2`)}</Link>
+              <Menu.Item key="2" icon={<Icon component={ChartIcon} />}>
+                <Link to="/admin/statistics"> {t(`Admin.Titul2`)}</Link>
               </Menu.Item>
 
-              <Menu.Item key="3">
-                <Link to="/admin/team">👩‍👩‍👧‍👧 {t(`Admin.Titul3`)}</Link>
+              <Menu.Item key="3" icon={<Icon component={TeamIcon} />}>
+                <Link to="/admin/team"> {t(`Admin.Titul3`)}</Link>
               </Menu.Item>
-              <Menu.Item key="4">
-                <Link to="/admin/products">🛍 {t(`Admin.Titul4`)}</Link>
+              <Menu.Item key="4" icon={<Icon component={ProductIcon} />}>
+                <Link to="/admin/products"> {t(`Admin.Titul4`)}</Link>
               </Menu.Item>
-              <Menu.Item key="5">
-                <Link to="/admin/plans">🗒 {t(`Admin.Titul5`)}</Link>
+              <Menu.Item key="5" icon={<Icon component={PlansIcon} />}>
+                <Link to="/admin/plans"> {t(`Admin.Titul5`)}</Link>
               </Menu.Item>
-              <Menu.Item key="6">
-                <Link to="/admin/setting">⚙️ {t(`Admin.Titul6`)}</Link>
+              <Menu.Item key="6" icon={<Icon component={SettingsIcon} />}>
+                <Link to="/admin/setting"> {t(`Admin.Titul6`)}</Link>
               </Menu.Item>
             </Menu>
           </Sider>

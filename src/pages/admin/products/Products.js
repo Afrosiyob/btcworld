@@ -52,7 +52,7 @@ function Products() {
         align="middle"
       >
         <Col>
-          <h2 className="w-100 text-muted mb-3">Products</h2>
+          <h2 className="w-100 text-muted mb-3">{t(`Admin.Titul4`)}</h2>
         </Col>
 
         <Col>

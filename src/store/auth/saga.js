@@ -2,6 +2,7 @@ import { message, notification } from "antd";
 import axios from "axios";
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
 import {
+  ACTIVATE_USER,
   EDIT_USER,
   REG_USER,
   USER_AUTO_LOGIN,
@@ -184,16 +185,44 @@ function* workEditUser({ payload }) {
   const { response, error } = yield call(fetchEditUser, userData);
 
   if (response) {
-    console.log("====================================");
+    yield put(editUserSuccess(response.data));
+
+    message
+      .loading("kuting")
+      .then(() => message.success("malumotlar muffaqiyatli uzgartirildi"));
+  } else {
+    yield put(editUserError(error));
+
+    message.loading("kuting").then(() => message.error("error"));
+  }
+}
+
+function* watchActivateUser() {
+  yield takeEvery(ACTIVATE_USER, workActivateUser);
+}
+
+function fetchActivateUser(activateData) {
+  return axios
+    .post(`${process.env.REACT_APP_SERVER_URL}activate/`, activateData)
+    .then((response) => {
+      return { response };
+    })
+    .catch((error) => {
+      return { error };
+    });
+}
+
+function* workActivateUser({ payload }) {
+  const activateData = payload;
+  const { response, error } = yield call(fetchActivateUser, activateData);
+  if (response) {
+    console.log(" activate res ====================================");
     console.log(response);
     console.log("====================================");
-
-    yield put(editUserSuccess(response.data));
   } else {
     console.log("====================================");
-    console.log(error.response);
+    console.log(error);
     console.log("====================================");
-    yield put(editUserError(error));
   }
 }
 
@@ -204,5 +233,6 @@ export default function* rootSaga() {
     fork(watchUserLogOutUser),
     fork(watchRegUser),
     fork(watchEditUser),
+    fork(watchActivateUser),
   ]);
 }

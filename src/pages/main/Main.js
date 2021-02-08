@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import About from "../../layouts/main/about/About";
@@ -8,11 +9,23 @@ import Help from "../../layouts/main/help/Help";
 import News from "../../layouts/main/news/News";
 
 import TopNavBar from "../../layouts/main/topnavbar/TopNavBar";
+import { activateUser } from "../../store/auth/action";
 
 function Main() {
   const { id, token } = useParams();
+  const formData = new FormData();
 
-  
+  formData.append("id", id);
+  formData.append("token", token);
+  const dispatch = useDispatch();
+  const real_token = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (!real_token) {
+      dispatch(activateUser(formData));
+    }
+  });
+
   return (
     <div>
       <TopNavBar />

@@ -42,41 +42,41 @@ function SignUp({ regLoading, toggleModal }) {
       <Row gutter={[8, 8]}>
         <Col md={12} sm={24}>
           <Form.Item
-            label="Username"
+            label={t(`label.username`)}
             name="username"
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                message: t(`message.username`),
               },
             ]}
           >
             <Input
               className="rounded-pill"
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username"
+              placeholder={t(`homeLogin.Titul3`)}
             />
           </Form.Item>
         </Col>
         <Col md={12} sm={24}>
           <Form.Item
             name="email"
-            label="E-mail"
+            label={t(`label.email`)}
             rules={[
               {
                 type: "email",
-                message: "The input is not valid E-mail!",
+                message: t(`message.email`),
               },
               {
                 required: true,
-                message: "Please input your E-mail!",
+                message: t(`message.email2`),
               },
             ]}
           >
             <Input
               className="rounded-pill"
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="E-mail"
+              placeholder={t(`homeLogin.Titul5`)}
             />
           </Form.Item>
         </Col>
@@ -85,12 +85,12 @@ function SignUp({ regLoading, toggleModal }) {
       <Row gutter={[8, 8]}>
         <Col md={12} sm={24}>
           <Form.Item
-            label="Password"
+            label={t(`label.pass`)}
             name="password1"
             rules={[
               {
                 required: true,
-                message: "Please input your password!",
+                message: t(`message.pass`),
               },
             ]}
           >
@@ -98,18 +98,18 @@ function SignUp({ regLoading, toggleModal }) {
               className="rounded-pill"
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
-              placeholder="Password"
+              placeholder={t(`homeLogin.Titul4`)}
             />
           </Form.Item>
         </Col>
         <Col md={12} sm={24}>
           <Form.Item
-            label="Password"
+            label={t(`label.repass`)}
             name="password2"
             rules={[
               {
                 required: true,
-                message: "Please input your password!",
+                message: t(`message.pass`),
               },
             ]}
           >
@@ -117,7 +117,7 @@ function SignUp({ regLoading, toggleModal }) {
               className="rounded-pill"
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
-              placeholder="Password"
+              placeholder={t(`homeLogin.Titul6`)}
             />
           </Form.Item>
         </Col>
@@ -126,37 +126,37 @@ function SignUp({ regLoading, toggleModal }) {
       <Row gutter={[8, 8]}>
         <Col md={12} sm={24}>
           <Form.Item
-            label="phone"
+            label={t(`label.phone`)}
             name="phone"
             rules={[
               {
                 required: true,
-                message: "Phone",
+                message: t(`message.phone`),
               },
             ]}
           >
             <Input
               className="rounded-pill"
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username"
+              placeholder={t(`homeLogin.Titul7`)}
             />
           </Form.Item>
         </Col>
         <Col md={12}>
           <Form.Item
-            label="Parent"
+            label={t(`label.partner`)}
             name="parent"
             rules={[
               {
                 required: true,
-                message: "Parent!",
+                message: t(`message.partner`),
               },
             ]}
           >
             <Input
               className="rounded-pill"
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username"
+              placeholder={t(`homeLogin.Titul8`)}
             />
           </Form.Item>
         </Col>

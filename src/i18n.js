@@ -64,7 +64,7 @@ i18n
       checkWhitelist: true,
     },
 
-    whitelist: ["uz", "en", "ru"],
+    whitelist: ["uz", "ru"],
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },

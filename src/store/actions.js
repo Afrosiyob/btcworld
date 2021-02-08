@@ -14,6 +14,10 @@ export const REG_USER = "REG_USER";
 export const REG_USER_SUCCESS = "REG_USER_SUCCESS";
 export const REG_USER_ERROR = "REG_USER_ERROR";
 
+export const EDIT_USER = "EDIT_USER";
+export const EDIT_USER_SUCCESS = "EDIT_USER_SUCCESS";
+export const EDIT_USER_ERROR = "EDIT_USER_ERROR";
+
 export const GET_TREE = "GET_TREE";
 export const GET_TREE_SUCCESS = "GET_TREE_SUCCESS";
 export const GET_TREE_ERROR = "GET_TREE_ERROR";

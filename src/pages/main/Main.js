@@ -20,6 +20,10 @@ function Main() {
   const dispatch = useDispatch();
   const real_token = localStorage.getItem("token");
 
+  console.log("  ====================================");
+  console.log(token);
+  console.log("====================================");
+
   useEffect(() => {
     if (!real_token && id && token) {
       dispatch(activateUser(formData));

@@ -112,11 +112,15 @@
     "Titul13": "Ma'lumotlarni yuboring"
   },
   "products": {
-    "Titul": "",
-    "Titul2": "",
-    "Titul3": "",
-    "Titul4": "",
-    "Titul5": "",
-    "Titul6": ""
+    "Titul": "Mahsulot",
+    "Titul2": "Narx",
+    "Titul3": "Sotilgan",
+    "Titul4": "Sharhlar",
+    "Titul5": "Amal",
+    "Titul6": "Mahsulot qo'shing"
+  },
+  "plans": {
+    "Titul": "Kechirasiz, siz tashrif buyurgan sahifada ma'lumot yo'q.",
+    "Titul2": "Ortga qaytish"
   }
 }

@@ -21,7 +21,7 @@ function Main() {
   const real_token = localStorage.getItem("token");
 
   useEffect(() => {
-    if (!real_token) {
+    if (!real_token && id && token) {
       dispatch(activateUser(formData));
     }
   });

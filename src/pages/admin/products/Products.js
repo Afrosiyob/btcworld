@@ -15,29 +15,29 @@ function Products() {
 
   const columns = [
     {
-      title: "Product",
+      title: t(`products.Titul`),
       dataIndex: "product",
       key: "product",
     },
     {
-      title: "Price",
+      title: t(`products.Titul2`),
       dataIndex: "price",
       key: "price",
     },
 
     {
-      title: "Solded",
+      title: t(`products.Titul3`),
       key: "solded",
       dataIndex: "solded",
     },
     {
-      title: "Reviews",
+      title: t(`products.Titul4`),
       key: "reviews",
       dataIndex: "reviews",
     },
 
     {
-      title: "Action",
+      title: t(`products.Titul5`),
       key: "action",
       dataIndex: "action",
     },
@@ -56,7 +56,7 @@ function Products() {
         </Col>
 
         <Col>
-          <Button size="large"> add product</Button>
+          <Button size="large"> {t(`products.Titul6`)} </Button>
         </Col>
       </Row>
 

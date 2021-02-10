@@ -23,9 +23,13 @@ function Setting() {
   const TimeIcon = () => <span>⏱</span>;
   const UserIconSmall = () => <span>👤</span>;
   const { t } = useTranslation();
-  const { userData } = useSelector((state) => state.userReducer);
+
+  const {
+    userData: { user },
+  } = useSelector((state) => state.userReducer);
+
   const { Dragger } = Upload;
-  const { user } = userData;
+  // const { user } = userData;
   const dispatch = useDispatch();
   const [state, setState] = useState({ fileListTwo: [] });
   const { fileListTwo } = state;
@@ -102,24 +106,24 @@ function Setting() {
         <Col sm={24} md={6}>
           <h4 className="w-100 text-muted mb-3">{t(`settings.Titul`)}</h4>
           <Card>
-            <Image src={user.image ? user.image : ""} />
+            <Image src={user ? user.image : ""} />
 
             <Divider />
             <div className="user-information">
               <div className="information-item mb-2">
                 <h6 className="text-muted ">
-                  {t(`label.username`)} {user.first_name ? user.first_name : ""}
+                  {t(`label.username`)} {user ? user.first_name : ""}
                 </h6>
                 <p className="font-weight-bolder ml-2">
                   <Icon component={UserIcon} className="text-muted mr-2" />{" "}
-                  {user.username ? user.username : ""}
+                  {user ? user.username : ""}
                 </p>
               </div>
               <div className="information-item mb-2">
                 <h6 className="text-muted">{t(`label.email`)}</h6>
                 <p className="font-weight-bolder ml-2">
                   <i className="fas fa-at text-muted mr-2"></i>{" "}
-                  {user.email ? user.email : ""}
+                  {user ? user.email : ""}
                 </p>
               </div>
               <div className="information-item mb-2">
@@ -129,14 +133,14 @@ function Setting() {
                     component={BalansIcon}
                     className="fas fa-at text-muted mr-2"
                   />{" "}
-                  {user.balance ? user.balance : ""} sum
+                  {user ? user.balance : ""} sum
                 </p>
               </div>{" "}
               <div className="information-item mb-2">
                 <h6 className="text-muted ">{t(`settings.Titul4`)}</h6>
                 <p className="font-weight-bolder ml-2">
                   <i className="fas fa-shield-alt text-muted mr-2"></i>{" "}
-                  {user.status_plan ? user.status_plan : ""}
+                  {user ? user.status_plan : ""}
                 </p>
               </div>
               <div className="information-item mb-2">
@@ -146,7 +150,7 @@ function Setting() {
                     component={TimeIcon}
                     className="fas fa-at text-muted mr-2"
                   />{" "}
-                  {user.date_joined ? user.date_joined : ""}{" "}
+                  {user ? user.date_joined : ""}{" "}
                 </p>
               </div>
             </div>

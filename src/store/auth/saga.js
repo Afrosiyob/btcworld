@@ -107,7 +107,8 @@ function fetchUserAutoLogin() {
     });
 }
 
-function* workUserAutoLogin() {
+function* workUserAutoLogin({ payload }) {
+  const history = payload;
   const { response, error } = yield call(fetchUserAutoLogin);
 
   if (response) {
@@ -115,6 +116,7 @@ function* workUserAutoLogin() {
     message.loading("kuting").then(() => message.success("success"));
   } else {
     yield put(userAutoLoginError(error));
+    history.push("/");
     message
       .loading("kuting")
       .then(() => message.warning("Siz Ro'yxatdan o'tmagansiz"));

@@ -34,8 +34,9 @@ export const userLoginError = (errorMsg) => ({
   payload: errorMsg,
 });
 
-export const userAutoLogin = () => ({
+export const userAutoLogin = (history) => ({
   type: USER_AUTO_LOGIN,
+  payload: history,
 });
 
 export const userAutoLoginSuccess = (response) => ({

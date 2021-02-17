@@ -33,7 +33,7 @@ function* workGetPlans() {
     message.loading("kuting").then(() => message.success("success"));
   } else {
     yield put(getPlansError(error));
-    message.loading("kuting").then(() => message.error(error));
+    // message.loading("kuting").then(() => message.error(error));
   }
 }
 

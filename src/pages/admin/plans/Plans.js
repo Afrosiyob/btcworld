@@ -18,6 +18,28 @@ function Plans() {
   console.log(plans);
   console.log("====================================");
 
+  const plansItem = plans;
+  const listItems = plansItem.map((plan) => (
+    <Col xs={24} sm={12} md={8} lg={6} xl={5}>
+      <Card
+        className="shadow-sm text-center rounded"
+        headStyle={{
+          backgroundColor: "#002140",
+          textTransform: "uppercase",
+          color: "white",
+        }}
+        title={plan.name}
+        bordered={false}
+      >
+        <h2>
+          {plan.price} <small>so'm</small>
+        </h2>
+        <p>~ {plan.description}</p>
+        <button className="header-btn rounded-pill px-5">Sotib olish</button>
+      </Card>
+    </Col>
+  ));
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,112 +59,12 @@ function Plans() {
       >
         <Col>
           <h2 className="w-100 text-muted mb-3">{t(`Admin.Titul5`)}</h2>
-          <h5 className="w-100 text-muted mb-3">O'zingizga qulay bo'lgan ta'rifni tanlang</h5>
+          <h5 className="w-100 text-muted mb-3">
+            O'zingizga qulay bo'lgan ta'rifni tanlang
+          </h5>
         </Col>
       </Row>
-<<<<<<< HEAD
-      <Row gutter={[16, 16]}>
-        <Col sm={6}>
-          <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
-=======
-      <Row gutter={16}>
-        <Col span={6}>
-          <Card
-            className="shadow-sm text-center rounded"
-            headStyle={{
-              backgroundColor: "#002140",
-              textTransform: "uppercase",
-              color: "white",
-            }}
-            title="Ta'rif 1"
-            bordered={false}
-          >
->>>>>>> c5bc4fc6ddf153155d85babee98549d9d399c499
-            <h2>
-              100000 <small>so'm</small>
-            </h2>
-            <p>~ birinchi ta'rif haqida</p>
-            <button className="header-btn rounded-pill px-5">
-              Sotib olish
-            </button>
-          </Card>
-        </Col>
-<<<<<<< HEAD
-        <Col sm={6}>
-        <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
-=======
-        <Col span={6}>
-          <Card
-            className="shadow-sm text-center rounded"
-            headStyle={{
-              backgroundColor: "#002140",
-              textTransform: "uppercase",
-              color: "white",
-            }}
-            title="Ta'rif 1"
-            bordered={false}
-          >
->>>>>>> c5bc4fc6ddf153155d85babee98549d9d399c499
-            <h2>
-              100000 <small>so'm</small>
-            </h2>
-            <p>~ birinchi ta'rif haqida</p>
-            <button className="header-btn rounded-pill px-5">
-              Sotib olish
-            </button>
-          </Card>
-        </Col>
-<<<<<<< HEAD
-        <Col sm={6}>
-        <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
-=======
-        <Col span={6}>
-          <Card
-            className="shadow-sm text-center rounded"
-            headStyle={{
-              backgroundColor: "#002140",
-              textTransform: "uppercase",
-              color: "white",
-            }}
-            title="Ta'rif 1"
-            bordered={false}
-          >
->>>>>>> c5bc4fc6ddf153155d85babee98549d9d399c499
-            <h2>
-              100000 <small>so'm</small>
-            </h2>
-            <p>~ birinchi ta'rif haqida</p>
-            <button className="header-btn rounded-pill px-5">
-              Sotib olish
-            </button>
-          </Card>
-        </Col>
-<<<<<<< HEAD
-        <Col sm={6}>
-        <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
-=======
-        <Col span={6}>
-          <Card
-            className="shadow-sm text-center rounded"
-            headStyle={{
-              backgroundColor: "#002140",
-              textTransform: "uppercase",
-              color: "white",
-            }}
-            title="Ta'rif 1"
-            bordered={false}
-          >
->>>>>>> c5bc4fc6ddf153155d85babee98549d9d399c499
-            <h2>
-              100000 <small>so'm</small>
-            </h2>
-            <p>~ birinchi ta'rif haqida</p>
-            <button className="header-btn rounded-pill px-5">
-              Sotib olish
-            </button>
-          </Card>
-        </Col>
-      </Row>
+      <Row gutter={[16, 16]}>{listItems}</Row>
 
       {/* <Result
         status="404"

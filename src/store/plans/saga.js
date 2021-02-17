@@ -2,6 +2,7 @@ import { message } from "antd";
 import axios from "axios";
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
 import { GET_PLANS } from "../actions";
+import { getPlansError, getPlansSuccess } from "./action";
 
 function* watchGetPlans() {
   yield takeEvery(GET_PLANS, workGetPlans);
@@ -28,13 +29,11 @@ function* workGetPlans() {
   const { response, error } = yield call(fetchGetPlans);
 
   if (response) {
-    console.log(" plans response ====================================");
-    console.log(response);
-    console.log("====================================");
+    yield put(getPlansSuccess(response.data));
+    message.loading("kuting").then(() => message.success("success"));
   } else {
-    console.log(" plans error ====================================");
-    console.log(error);
-    console.log("====================================");
+    yield put(getPlansError(error));
+    message.loading("kuting").then(() => message.error(error));
   }
 }
 

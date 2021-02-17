@@ -1,13 +1,22 @@
 import { Card, Col, Row } from "antd";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
 import HelmetTitle from "../../../components/Halmet/HelmetTitle";
 import { getPlans } from "../../../store/plans/action";
 
 function Plans() {
   // let history = useHistory();
+
+  const { plans, getLoading } = useSelector((state) => state.plansReducer);
+
+  console.log("====================================");
+  console.log(getLoading);
+  console.log("====================================");
+  console.log("====================================");
+  console.log(plans);
+  console.log("====================================");
 
   const dispatch = useDispatch();
 
@@ -32,47 +41,83 @@ function Plans() {
       </Row>
       <Row gutter={16}>
         <Col span={6}>
-          <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
+          <Card
+            className="shadow-sm text-center rounded"
+            headStyle={{
+              backgroundColor: "#002140",
+              textTransform: "uppercase",
+              color: "white",
+            }}
+            title="Ta'rif 1"
+            bordered={false}
+          >
             <h2>
               100000 <small>so'm</small>
             </h2>
             <p>~ birinchi ta'rif haqida</p>
             <button className="header-btn rounded-pill px-5">
               Sotib olish
-              </button>
+            </button>
           </Card>
         </Col>
         <Col span={6}>
-        <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
+          <Card
+            className="shadow-sm text-center rounded"
+            headStyle={{
+              backgroundColor: "#002140",
+              textTransform: "uppercase",
+              color: "white",
+            }}
+            title="Ta'rif 1"
+            bordered={false}
+          >
             <h2>
               100000 <small>so'm</small>
             </h2>
             <p>~ birinchi ta'rif haqida</p>
             <button className="header-btn rounded-pill px-5">
               Sotib olish
-              </button>
+            </button>
           </Card>
         </Col>
         <Col span={6}>
-        <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
+          <Card
+            className="shadow-sm text-center rounded"
+            headStyle={{
+              backgroundColor: "#002140",
+              textTransform: "uppercase",
+              color: "white",
+            }}
+            title="Ta'rif 1"
+            bordered={false}
+          >
             <h2>
               100000 <small>so'm</small>
             </h2>
             <p>~ birinchi ta'rif haqida</p>
             <button className="header-btn rounded-pill px-5">
               Sotib olish
-              </button>
+            </button>
           </Card>
         </Col>
         <Col span={6}>
-        <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
+          <Card
+            className="shadow-sm text-center rounded"
+            headStyle={{
+              backgroundColor: "#002140",
+              textTransform: "uppercase",
+              color: "white",
+            }}
+            title="Ta'rif 1"
+            bordered={false}
+          >
             <h2>
               100000 <small>so'm</small>
             </h2>
             <p>~ birinchi ta'rif haqida</p>
             <button className="header-btn rounded-pill px-5">
               Sotib olish
-              </button>
+            </button>
           </Card>
         </Col>
       </Row>

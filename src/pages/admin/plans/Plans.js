@@ -28,10 +28,11 @@ function Plans() {
       >
         <Col>
           <h2 className="w-100 text-muted mb-3">{t(`Admin.Titul5`)}</h2>
+          <h5 className="w-100 text-muted mb-3">O'zingizga qulay bo'lgan ta'rifni tanlang</h5>
         </Col>
       </Row>
-      <Row gutter={16}>
-        <Col span={6}>
+      <Row gutter={[16, 16]}>
+        <Col sm={6}>
           <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
             <h2>
               100000 <small>so'm</small>
@@ -42,7 +43,7 @@ function Plans() {
               </button>
           </Card>
         </Col>
-        <Col span={6}>
+        <Col sm={6}>
         <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
             <h2>
               100000 <small>so'm</small>
@@ -53,7 +54,7 @@ function Plans() {
               </button>
           </Card>
         </Col>
-        <Col span={6}>
+        <Col sm={6}>
         <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
             <h2>
               100000 <small>so'm</small>
@@ -64,7 +65,7 @@ function Plans() {
               </button>
           </Card>
         </Col>
-        <Col span={6}>
+        <Col sm={6}>
         <Card className="shadow-sm text-center rounded" headStyle={{ backgroundColor: '#002140',  textTransform: "uppercase", color: 'white' }}  title="Ta'rif 1" bordered={false}>
             <h2>
               100000 <small>so'm</small>

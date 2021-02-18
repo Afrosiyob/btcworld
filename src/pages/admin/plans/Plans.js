@@ -1,22 +1,16 @@
-import { Button, Card, Col, Result, Row } from "antd";
+import { Button, Col, Result, Row } from "antd";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import HelmetTitle from "../../../components/Halmet/HelmetTitle";
 import { getPlans } from "../../../store/plans/action";
+import PlanCard from "./planCard/PlanCard";
 
 function Plans() {
   let history = useHistory();
 
   const { plans, getLoading } = useSelector((state) => state.plansReducer);
-
-  console.log("====================================");
-  console.log(getLoading);
-  console.log("====================================");
-  console.log("====================================");
-  console.log(plans);
-  console.log("====================================");
 
   const dispatch = useDispatch();
 
@@ -41,28 +35,7 @@ function Plans() {
       </Row>
       <Row gutter={[8, 8]}>
         {plans ? (
-          plans.map((item, index) => (
-            <Col sm={12} md={8} lg={6}>
-              <Card
-                className="shadow-sm text-center rounded"
-                headStyle={{
-                  backgroundColor: "#002140",
-                  textTransform: "uppercase",
-                  color: "white",
-                }}
-                title="Ta'rif 1"
-                bordered={false}
-              >
-                <h2>
-                  100000 <small>so'm</small>
-                </h2>
-                <p>~ birinchi ta'rif haqida</p>
-                <button className="header-btn rounded-pill px-5">
-                  Sotib olish
-                </button>
-              </Card>
-            </Col>
-          ))
+          plans.map((item, index) => <PlanCard item={item} index={index} />)
         ) : (
           <Result
             status="404"

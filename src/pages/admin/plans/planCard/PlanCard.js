@@ -3,7 +3,7 @@ import { Button, Card, Col, Radio, Modal } from "antd";
 import React, { useState } from "react";
 import ClickLogo from "../../../../assets/images/clickModal.png";
 import PaymeLogo from "../../../../assets/images/payme.png";
-function PlanCard({ item, index }) {
+function PlanCard({ item, index, getLoading }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [value, setValue] = useState("click");
   const showModal = () => {
@@ -23,6 +23,7 @@ function PlanCard({ item, index }) {
   return (
     <Col sm={12} md={8} lg={6}>
       <Card
+        loading={getLoading}
         className="shadow-sm text-center rounded"
         headStyle={{
           backgroundColor: "#002140",

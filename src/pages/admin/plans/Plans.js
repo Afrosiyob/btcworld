@@ -35,7 +35,9 @@ function Plans() {
       </Row>
       <Row gutter={[8, 8]}>
         {plans ? (
-          plans.map((item, index) => <PlanCard item={item} index={index} />)
+          plans.map((item, index) => (
+            <PlanCard item={item} index={index} getLoading={getLoading} />
+          ))
         ) : (
           <Result
             status="404"

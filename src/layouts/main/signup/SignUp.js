@@ -38,6 +38,9 @@ function SignUp({ regLoading, toggleModal }) {
       layout="vertical"
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
+      initialValues={{
+        parent: "BTC",
+      }}
     >
       <Row gutter={[8, 8]}>
         <Col md={12} sm={24}>
@@ -154,6 +157,7 @@ function SignUp({ regLoading, toggleModal }) {
             ]}
           >
             <Input
+              defaultValue={"BTC"}
               className="rounded-pill"
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder={t(`homeLogin.Titul8`)}

@@ -45,8 +45,10 @@ function* workUserLogin({ payload }) {
     history.push("/admin");
     message.loading("kuting").then(() => message.success("success"));
   } else {
-    message.loading("kuting").then(() => message.error("error"));
-    yield put(userLoginError(error));
+    message
+      .loading("kuting")
+      .then(() => message.error(error.response.data.non_field_errors[0]));
+    yield put(userLoginError(error.response.data.non_field_errors[0]));
   }
 }
 
@@ -82,8 +84,10 @@ function* workUserLogOut({ payload }) {
     localStorage.removeItem("token");
     message.loading("kuting").then(() => message.success("success"));
   } else {
-    yield put(userLogOutError(error));
-    message.loading("kuting").then(() => message.error(error));
+    yield put(userLogOutError(error.response.data.non_field_errors[0]));
+    message
+      .loading("kuting")
+      .then(() => message.error(error.response.data.non_field_errors[0]));
   }
 }
 
@@ -115,7 +119,7 @@ function* workUserAutoLogin({ payload }) {
     yield put(userAutoLoginSuccess(response.data));
     message.loading("kuting").then(() => message.success("success"));
   } else {
-    yield put(userAutoLoginError(error));
+    yield put(userAutoLoginError(error.response.data.non_field_errors[0]));
     history.push("/");
     message
       .loading("kuting")
@@ -155,7 +159,7 @@ function* workRegUser({ payload }) {
     });
   } else {
     console.log(" reg error ====================================");
-    console.log(error);
+    console.log(error.response.data.non_field_errors[0]);
     console.log("====================================");
   }
 }

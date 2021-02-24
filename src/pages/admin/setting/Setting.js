@@ -106,7 +106,7 @@ function Setting() {
         <Col sm={24} md={6}>
           <h4 className="w-100 text-muted mb-3">{t(`settings.Titul`)}</h4>
           <Card>
-            <Image src={user ? user.image : ""} />
+            <Image src={user?.image} />
 
             <Divider />
             <div className="user-information">

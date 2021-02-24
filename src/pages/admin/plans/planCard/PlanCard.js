@@ -19,6 +19,9 @@ function PlanCard({ item, index, getLoading }) {
   };
   const onChange = (e) => {
     setValue(e.target.value);
+    console.log(" cahnge ====================================");
+    console.log(value);
+    console.log("====================================");
   };
   return (
     <Col sm={12} md={8} lg={6}>

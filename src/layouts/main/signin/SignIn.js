@@ -49,7 +49,7 @@ function SignIn({ sendLoading }) {
         <Input
           className="rounded-pill"
           prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder= {t(`homeLogin.Titul3`)}
+          placeholder={t(`homeLogin.Titul3`)}
         />
       </Form.Item>
 
@@ -59,7 +59,7 @@ function SignIn({ sendLoading }) {
         rules={[
           {
             required: true,
-            message:  t(`message.pass`),
+            message: t(`message.pass`),
           },
         ]}
       >
